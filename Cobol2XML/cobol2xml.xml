@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cobol>
+<identification-division>identification division</identification-division>
+<Program-ID>base</Program-ID>
+<data-division>data division</data-division>
+<section>working-storage section</section>
+<procedure-division>procedure division</procedure-division>
+</cobol>

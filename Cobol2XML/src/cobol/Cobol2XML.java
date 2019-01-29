@@ -1,5 +1,5 @@
 /*
- * @(#)Cobol2XML.java	 0.0.1
+ * @(#)Cobol2XML.java	 0.1.0
  *
  * Copyright (c) 2019 Julian M. Bass
  *
@@ -30,6 +30,14 @@ public class Cobol2XML {
 	/**
 	 * Recognise some basic constructs in a COBOL source code file.
 	 * And then produce a well-formed XML file with the data identified
+	 * 
+	 * First command line parameter must be path to cobol source file, such as
+	 * "C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\base.cbl"
+	 * 
+	 * Or, when you know exactly where the repository is located and have the file in the right place, simply
+	 * "base.cbl"
+	 * 
+	 * The quotation marks are required
 	 */
 	public static void main(String[] args) throws Exception {
 		System.out.println("Cobol2XML V0.0.1");
@@ -38,7 +46,9 @@ public class Cobol2XML {
 		// Poor practice to hard code a file name into the source
 		// Better to pass the file name in as a parameter, or ask user for filename input
 		// throws FileNotFoundException
-		InputStream is = new FileInputStream("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\base.cbl");
+		System.out.println("arg[0]" + args[0]);
+//		InputStream is = new FileInputStream("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\base.cbl");
+		InputStream is = new FileInputStream(args[0]);
 		BufferedReader r = 	new BufferedReader(new InputStreamReader(is));
 
 		Tokenizer t = CobolParser.tokenizer();

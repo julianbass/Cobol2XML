@@ -1,4 +1,23 @@
-package XMLWriter;
+/*
+ * @(#)XMLPayload.java	 0.1.0
+ *
+ * Copyright (c) 2019 Julian M. Bass
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */package XMLWriter;
 
 import cobol.*;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -142,11 +161,6 @@ public class XMLPayload {
         transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(doc);
-        
-        
-        /* This is shaky likely won't work on anyone elses machine
-         * StreamResult result =
-        new StreamResult(new File("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\cobol.xml"));*/
         
         StreamResult result =
                 new StreamResult(new File(filename));
