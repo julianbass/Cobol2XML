@@ -43,11 +43,17 @@ public class Cobol2XML {
 		System.out.println("Cobol2XML V0.0.1");
 		XMLPayload xmlp = new XMLPayload();
 		
-		// Poor practice to hard code a file name into the source
-		// Better to pass the file name in as a parameter, or ask user for filename input
-		// throws FileNotFoundException
-		System.out.println("arg[0]" + args[0]);
-//		InputStream is = new FileInputStream("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\base.cbl");
+		/* The first command line paprameter is used to get the cobol source file namee
+		 * In case you are not sure if you are pointing toward the right file, print out the filename
+		 * like this...
+		 *
+		 * System.out.println("arg[0]" + args[0]);
+		 */
+		
+		/*
+		 * A rather crude approach is to hard code the filename for the cobol source file, like this
+		 * InputStream is = new FileInputStream("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\base.cbl");
+		 */
 		InputStream is = new FileInputStream(args[0]);
 		BufferedReader r = 	new BufferedReader(new InputStreamReader(is));
 
