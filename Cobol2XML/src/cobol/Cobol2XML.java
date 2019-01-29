@@ -61,7 +61,7 @@ public class Cobol2XML {
 				xmlp.addElements(c); 
 			
 		}
-		xmlp.writeFile();
+		xmlp.writeFile("cobol2xml.xml");
 		r.close();
 	}
 

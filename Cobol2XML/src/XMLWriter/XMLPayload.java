@@ -132,7 +132,7 @@ public class XMLPayload {
 		}
 	}
 	
-	public void writeFile() {
+	public void writeFile(String filename) {
 		try {
 		// write the content into xml file
         TransformerFactory transformerFactory =
@@ -142,8 +142,14 @@ public class XMLPayload {
         transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(doc);
+        
+        
+        /* This is shaky likely won't work on anyone elses machine
+         * StreamResult result =
+        new StreamResult(new File("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\cobol.xml"));*/
+        
         StreamResult result =
-        new StreamResult(new File("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\cobol.xml"));
+                new StreamResult(new File(filename));
         transformer.transform(source, result);
         
         // Output to console for testing
