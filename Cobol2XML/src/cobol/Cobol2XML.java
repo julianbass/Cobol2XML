@@ -39,6 +39,10 @@ public class Cobol2XML {
 	 * 
 	 * The quotation marks are required
 	 */
+	/**
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
 		System.out.println("Cobol2XML V0.0.1");
 		XMLPayload xmlp = new XMLPayload();

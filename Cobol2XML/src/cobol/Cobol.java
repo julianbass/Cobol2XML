@@ -203,31 +203,21 @@ public class Cobol implements PubliclyCloneable {
 	}
 
 	/**
-	 * Return a textual description of this coffee type.
+	 * Return a textual description of this cobol type.
 	 * 
-	 * @return a textual description of this coffee type
+	 * @return a textual description of this cobol type
 	 */
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
 		buf.append(identificationDivision);
 		buf.append(", ");
 		buf.append(program_id);
-		
-		/*if (formerName != null) {
-			buf.append('(');
-			buf.append(formerName);
-			buf.append(')');
-		}
 		buf.append(", ");
-		buf.append(roast);
-		if (alsoOfferFrench) {
-			buf.append("/French");
-		}
-		
+		buf.append(procedureDivision);
 		buf.append(", ");
-		buf.append(country);
+		buf.append(dataDivision);
 		buf.append(", ");
-		buf.append(price); */
+		buf.append(sectionName);
 		
 		return buf.toString();
 	}
