@@ -47,33 +47,16 @@ public class CobolParser {
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
 		
-		a.add(IdentificationDivision() );
+		a.add( ProgramID() );
 		
-		a.add(ProgramID() );
+		a.add( DivisionName() );
 		
-		a.add(ProcedureDivision() );
-		
-		a.add(DataDivision() );
-		
-		a.add( Section() );
+		a.add( SectionName() );
 		
 		a.add(new Empty());
 		return a;
 	}
 
-	/*
-	 * Return a parser that will recognise the grammar:
-	 * 
-	 *    identification division;
-	 *
-	 */
-	protected Parser IdentificationDivision() {
-		Sequence s = new Sequence();
-		s.add(new CaselessLiteral("identification division") );
-		s.add(new Symbol('.').discard());
-		s.setAssembler(new IdentificationDivisionAssembler());
-		return s;
-	}
 
 	/*
 	 * Return a parser that will recognize the grammar:
@@ -90,63 +73,35 @@ public class CobolParser {
 	}
 
 
-	/*
-	 * Return a parser that will recognize the grammar:
-	 * 
-	 *    country = Word;
-	 *
-	 * Use a CountryAssembler to update the target coffee 
-	 * object.
-	 */
-	//protected Parser program_id() {
-//		return new Word();
-	//}
-
-	/*
-	 * Return a parser that will recognize the grammar:
-	 * 
-	 *    procedure division;
-	 *
-	 */
-	protected Parser ProcedureDivision() {
-		Sequence s = new Sequence();
-		s.add(new CaselessLiteral("procedure division") );
-		s.add(new Symbol('.').discard());
-		s.setAssembler(new ProcedureDivisionAssembler());
-		return s;
-	}
 
 	/*
 	 * Return a parser that will recognise the grammar:
 	 * 
-	 *    data division;
+	 *    <divisionName> division;
 	 *
 	 */
-	protected Parser DataDivision() {
+	protected Parser DivisionName() {
 		Sequence s = new Sequence();
-		s.add(new CaselessLiteral("data division") );
+		s.add(new Word().setAssembler(new DivisionAssembler()));
+		s.add(new CaselessLiteral("division") );
 		s.add(new Symbol('.').discard());
-		s.setAssembler(new DataDivisionAssembler());
 		return s;
 	}
-
+	
 	/*
-	 * Return a parser that will recognise the grammar:
+	 * Return a parser that will recognize the grammar:
 	 * 
-	 *    working-storage section;
+	 *    Program Identifier = Word;
 	 *
 	 */
-	protected Parser Section() {
+	protected Parser SectionName() {
 		Sequence s = new Sequence();
-		//s.add(new Word());
-		s.add(new CaselessLiteral("working-storage section") );
-		//s.add(new CaselessLiteral("working-storage section") );
-		s.add(new Symbol('.').discard());
-		s.setAssembler(new SectionAssembler());
-		System.out.println("Parsed Section");
+		s.add(new Word().setAssembler(new SectionNameAssembler()));
+		s.add(new CaselessLiteral("section") );
+		s.add(new Symbol('.').discard());	
+
 		return s;
 	}
-
 
 	/**
 	 * Return the primary parser for this class -- cobol().
@@ -158,15 +113,15 @@ public class CobolParser {
 	}
 
 	/**
-	 * Returns a tokenizer that allows spaces to appear inside
+	 * Returns a tokenizer that does not allow spaces to appear inside
 	 * the "words" that identify cobol's grammar.
 	 *
-	 * @return a tokenizer that allows spaces to appear inside
-	 * the "words" that identify a coffee's name.
+	 * @return a tokenizer that does not allow spaces to appear inside
+	 * the "words" that identify cobol grammar.
 	 */
 	public static Tokenizer tokenizer() {
 		Tokenizer t = new Tokenizer();
-		t.wordState().setWordChars(' ', ' ', true);
+		t.wordState().setWordChars(' ', ' ', false);
 		return t;
 	}
 

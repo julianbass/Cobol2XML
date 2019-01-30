@@ -1,5 +1,5 @@
 /*
- * @(#)IdentificationDivisionAssembler.java	 0.0.1
+ * @(#)DataDivisionAssembler.java	 0.0.1
  *
  * Copyright (c) 2019 Julian M. Bass
  *
@@ -23,9 +23,9 @@ package cobol;
 
 import parse.*;
 import parse.tokens.*;
-public class IdentificationDivisionAssembler extends Assembler {
+public class DivisionAssembler extends Assembler {
 /**
- * Pop a string, and set the target IdentificationDivision to this
+ * Pop a string, and set the target DataDivision to this
  * string.
  *
  * @param   Assembly   the assembly to work on
@@ -33,8 +33,7 @@ public class IdentificationDivisionAssembler extends Assembler {
 public void workOn(Assembly a) {
 	Cobol c = new Cobol();
 	Token t = (Token) a.pop();
-	c.setIdentificationDivision(t.sval().trim());
+	c.setDivisionName(t.sval().trim());
 	a.setTarget(c);
-	
 }
 }

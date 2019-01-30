@@ -23,7 +23,7 @@ package cobol;
 
 import parse.*;
 import parse.tokens.*;
-public class SectionAssembler extends Assembler {
+public class SectionNameAssembler extends Assembler {
 /**
  * Pop a string, and set the target SectionName to this
  * string.
@@ -33,7 +33,7 @@ public class SectionAssembler extends Assembler {
 public void workOn(Assembly a) {
 	Cobol c = new Cobol();
 	Token t = (Token) a.pop();
-	c.setSectionName(t.sval().trim());
+	c.setSectionName(t.sval() );
 	a.setTarget(c);
 }
 }

@@ -94,6 +94,15 @@ public class XMLPayload {
 		} else {
 			//System.out.println("Section Name null");
 		}
+		
+		String divisionName = c.getDivisionName();
+		if (divisionName != null) {
+			this.addDivisionElement( divisionName );
+			//System.out.println("Got Section");
+			// Add contents of procedure division
+		} else {
+			//System.out.println("Section Name null");
+		}
 	}
 	
 	
@@ -123,6 +132,16 @@ public class XMLPayload {
 		
 		if(stringElement != null) {
 			Element cobolname = doc.createElement("section");
+			cobolname.appendChild(doc.createTextNode(stringElement));
+			rootElement.appendChild(cobolname);
+		}
+	}
+ 	
+ 	void addDivisionElement(String stringElement) {
+		//  Section element
+		
+		if(stringElement != null) {
+			Element cobolname = doc.createElement("division");
 			cobolname.appendChild(doc.createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
 		}

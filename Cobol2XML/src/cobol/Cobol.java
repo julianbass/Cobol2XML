@@ -29,6 +29,7 @@ public class Cobol implements PubliclyCloneable {
 	protected String program_id;
 	protected String sectionName;
 	protected String dataDivision;
+	protected String divisionName;
 
 	
 	/**
@@ -148,7 +149,14 @@ public class Cobol implements PubliclyCloneable {
 		return sectionName;
 	}
 
-
+	/**
+	 * Return the section name.
+	 *
+	 * @return the section name
+	 */
+	public String getDivisionName() {
+		return divisionName;
+	}
 
 	/**
 	 * Set the identification division.
@@ -200,6 +208,15 @@ public class Cobol implements PubliclyCloneable {
 	 */
 	public void setSectionName(String sectionName) {
 		this.sectionName = sectionName;
+	}
+	
+	/**
+	 * Set the section name 
+	 *
+	 * @param  String sectionName
+	 */
+	public void setDivisionName(String divisionName) {
+		this.divisionName = divisionName;
 	}
 
 	/**
