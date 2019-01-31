@@ -1,5 +1,5 @@
 /*
- * @(#)CobolParser.java	 0.0.1
+ * @(#)CobolParser.java	 0.1.0
  *
  * Copyright (c) 2019 Julian M. Bass
  *
@@ -53,6 +53,8 @@ public class CobolParser {
 		
 		a.add( SectionName() );
 		
+		a.add( DateWritten() );
+		
 		a.add(new Empty());
 		return a;
 	}
@@ -102,6 +104,29 @@ public class CobolParser {
 
 		return s;
 	}
+	
+	/*
+	 * Return a parser that will recognise the grammar:
+	 * 
+	 *    working-storage section;
+	 *
+	 */
+	protected Parser DateWritten() {
+		Sequence s = new Sequence();
+		s.add(new CaselessLiteral("date-written") );
+		s.add(new Symbol('.').discard());
+		s.add(new Num());
+		s.add(new Symbol('-').discard());
+
+		//This next Word actually contains month and year (which are extracted in DateAssembler
+		s.add(new Word());
+		s.add(new Symbol('-').discard());
+		s.add(new Word().discard());
+		s.add(new Symbol('.').discard());
+		s.setAssembler(new DateAssembler());
+		return s;
+	}
+
 
 	/**
 	 * Return the primary parser for this class -- cobol().

@@ -24,12 +24,12 @@ package cobol;
 import utensil.*;
 
 public class Cobol implements PubliclyCloneable {
-	protected String identificationDivision;
-	protected String procedureDivision;
 	protected String program_id;
 	protected String sectionName;
-	protected String dataDivision;
 	protected String divisionName;
+	protected int dayDateWritten = 0;
+	protected String monthDateWritten;
+	protected int yearDateWritten = 0;
 
 	
 	/**
@@ -80,19 +80,8 @@ public class Cobol implements PubliclyCloneable {
 		}
 		Cobol c = (Cobol) o;
 		
-		if (!equal(identificationDivision, c.identificationDivision)) {
-			return false;
-		}
 		
 		if (!equal(program_id, c.program_id)) {
-			return false;
-		}
-		
-		if (!equal(procedureDivision, c.procedureDivision)) {
-			return false;
-		}
-
-		if (!equal(dataDivision, c.dataDivision)) {
 			return false;
 		}
 		
@@ -104,14 +93,6 @@ public class Cobol implements PubliclyCloneable {
 		return true;
 	}
 
-	/**
-	 * Return the identification division.
-	 *
-	 * @return the identification division.
-	 */
-	public String getIdentificationDivision() {
-		return identificationDivision;
-	}
 
 	/**
 	 * Return the name of this COBOL program.
@@ -120,24 +101,6 @@ public class Cobol implements PubliclyCloneable {
 	 */
 	public String getProgram_ID() {
 		return program_id;
-	}
-
-	/**
-	 * Return a procedure division for this COBOL program.
-	 *
-	 * @return a procedure division for this COBOL program
-	 */
-	public String getProcedureDivision() {
-		return procedureDivision;
-	}
-
-	/**
-	 * Return the data division.
-	 *
-	 * @return the data division.
-	 */
-	public String getDataDivision() {
-		return dataDivision;
 	}
 
 	/**
@@ -157,15 +120,35 @@ public class Cobol implements PubliclyCloneable {
 	public String getDivisionName() {
 		return divisionName;
 	}
-
+	
 	/**
-	 * Set the identification division.
+	 * Return the dayDateWritten of this COBOL program.
 	 *
-	 * @param   String   the name
+	 * @return the dayDateWritten of this COBOL program
 	 */
-	public void setIdentificationDivision(String identificationDivisionString) {
-		this.identificationDivision = identificationDivisionString;
+	public int getDayDateWritten() {
+		return dayDateWritten;
 	}
+
+	
+	/**
+	 * Return the monthWritten of this COBOL program.
+	 *
+	 * @return the monthWritten of this COBOL program
+	 */
+	public String getMonthDateWritten() {
+		return monthDateWritten;
+	}
+	
+	/**
+	 * Return the dayDateWritten of this COBOL program.
+	 *
+	 * @return the dayDateWritten of this COBOL program
+	 */
+	public int getYearDateWritten() {
+		return yearDateWritten;
+	}
+
 
 	/**
 	 * Set the name of this cobol file.
@@ -177,29 +160,32 @@ public class Cobol implements PubliclyCloneable {
 	}
 
 	/**
-	 * Set the identification division.
+	 * Set the dayDateWritten of this COBOL program.
 	 *
-	 * @param   String   the name
+	 * @param the dayDateWritten of this COBOL program
 	 */
-	public void setDataDivision(String dataDivisionString) {
-		this.dataDivision = dataDivisionString;
+	public void setDayDateWritten(int dayDateWritten) {
+		this.dayDateWritten = dayDateWritten;
 	}
-
+	
 	/**
-	 * Set a former name of this coffee.
+	 * Return the monthWritten of this COBOL program.
 	 *
-	 * @param   String   the name
+	 * @return the monthWritten of this COBOL program
 	 */
-	public void setProcedureDivision(String procedureDivision) {
-		this.procedureDivision = procedureDivision;
+	public void setMonthDateWritten(String monthDateWritten) {
+		this.monthDateWritten = monthDateWritten;
 	}
-
-
+	
 	/**
-	 * Set the day date written for this program. 
+	 * Set the yearDateWritten of this COBOL program.
 	 *
-	 * @param   int the day date
+	 * @param the yearDateWritten of this COBOL program
 	 */
+	public void setYearDateWritten(int yearDateWritten) {
+		this.yearDateWritten = yearDateWritten;
+	}
+	
 
 	/**
 	 * Set the section name 
@@ -226,13 +212,9 @@ public class Cobol implements PubliclyCloneable {
 	 */
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
-		buf.append(identificationDivision);
-		buf.append(", ");
 		buf.append(program_id);
 		buf.append(", ");
-		buf.append(procedureDivision);
-		buf.append(", ");
-		buf.append(dataDivision);
+		buf.append(divisionName);
 		buf.append(", ");
 		buf.append(sectionName);
 		

@@ -59,33 +59,6 @@ public class XMLPayload {
 	
 	public void addElements(Cobol c) {
 		
-		String identificationDivision = c.getIdentificationDivision();
-		if (identificationDivision != null) {
-			this.addIdentificationDivisionElement( identificationDivision );
-			// Add contents of identification division
-			this.addProgram_IDElement( c.getProgram_ID() );
-		} else {
-			// Add contents of identification division
-			this.addProgram_IDElement( c.getProgram_ID() );
-		}
-		
-		
-		String procedureDivision = c.getProcedureDivision();
-		if (procedureDivision != null) {
-			this.addProcedureDivisionElement( procedureDivision );
-			// Add contents of procedure division
-		} else {
-			// Add contents of procedure division
-		}
-		
-		String dataDivision = c.getDataDivision();
-		if (dataDivision != null) {
-			this.addDataDivisionElement( dataDivision );
-			// Add contents of data division
-		} else {
-			// Add contents of data division
-		}
-		
 		String sectionName = c.getSectionName();
 		if (sectionName != null) {
 			this.addSectionElement( sectionName );
