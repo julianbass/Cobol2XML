@@ -76,19 +76,34 @@ public class XMLPayload {
 		} else {
 			//System.out.println("Section Name null");
 		}
-	}
-	
-	
-
- 	void addIdentificationDivisionElement(String stringElement) {
-		//  ID element
 		
-		if(stringElement != null) {
-			Element idDivision = doc.createElement("identification-division");
-			idDivision.appendChild(doc.createTextNode(stringElement));
-			rootElement.appendChild(idDivision);
+		/*
+		 *  add DateWritten element
+		 */	
+		// DayDateWritten
+		int dayDateWritten = c.getDayDateWritten();
+		if(dayDateWritten != 0) {
+			this.addDayDateWrittenElement( dayDateWritten );
 		}
+		
+		//MonthDateWritten
+		String monthDateWritten = c.getMonthDateWritten();
+		if (monthDateWritten != null) {
+			this.addMonthDateWrittenElement( monthDateWritten );
+			//System.out.println("Got Section");
+			// Add contents of procedure division
+		} else {
+			//System.out.println("Section Name null");
+		}
+
+		// YearDateWritten
+		int yearDateWritten = c.getYearDateWritten();
+		if(yearDateWritten != 0) {
+			this.addYearDateWrittenElement( yearDateWritten );
+		}
+
 	}
+	
 
  	void addProgram_IDElement(String stringElement) {
 		//  Program ID element
@@ -120,26 +135,35 @@ public class XMLPayload {
 		}
 	}
 	
-	
-	void addProcedureDivisionElement(String stringElement) {
-		//  Procedure division element
+	void addDayDateWrittenElement(int intElement) {
+		//  DayDateWritten element
 		
-		if(stringElement != null) {
-			Element procedureDivision = doc.createElement("procedure-division");
-			procedureDivision.appendChild(doc.createTextNode(stringElement));
-			// Add content of procedure division
-			rootElement.appendChild(procedureDivision);
+		if(intElement != 0) {
+			Element cobolname = doc.createElement("day-date-written");
+			String s = "" + intElement;
+			cobolname.appendChild(doc.createTextNode(s));
+			rootElement.appendChild(cobolname);
 		}
 	}
-	
-	void addDataDivisionElement(String stringElement) {
-		//  Data Division element
+ 	
+	void addMonthDateWrittenElement(String stringElement) {
+		//  MonthWritten element
 		
 		if(stringElement != null) {
-			Element dataDivision = doc.createElement("data-division");
-			dataDivision.appendChild(doc.createTextNode(stringElement));
-			// Add content of data division
-			rootElement.appendChild(dataDivision);
+			Element cobolname = doc.createElement("month-date-written");
+			cobolname.appendChild(doc.createTextNode(stringElement));
+			rootElement.appendChild(cobolname);
+		}
+	}
+
+	void addYearDateWrittenElement(int intElement) {
+		//  YearDateWritten element
+		
+		if(intElement != 0) {
+			Element cobolname = doc.createElement("year-date-written");
+			String s = "" + intElement;
+			cobolname.appendChild(doc.createTextNode(s));
+			rootElement.appendChild(cobolname);
 		}
 	}
 	
