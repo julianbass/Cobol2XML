@@ -59,6 +59,9 @@ public class XMLPayload {
 	
 	public void addElements(Cobol c) {
 		
+		/*
+		 *  add sectionName element
+		 */		
 		String sectionName = c.getSectionName();
 		if (sectionName != null) {
 			this.addSectionElement( sectionName );
@@ -68,9 +71,24 @@ public class XMLPayload {
 			//System.out.println("Section Name null");
 		}
 		
+		/*
+		 *  add divisionName element
+		 */		
 		String divisionName = c.getDivisionName();
 		if (divisionName != null) {
 			this.addDivisionElement( divisionName );
+			//System.out.println("Got Section");
+			// Add contents of procedure division
+		} else {
+			//System.out.println("Section Name null");
+		}
+		
+		/*
+		 *  add ProgramID element
+		 */		
+		String programIDName = c.getProgram_ID();
+		if (programIDName != null) {
+			this.addProgram_IDElement( programIDName );
 			//System.out.println("Got Section");
 			// Add contents of procedure division
 		} else {
