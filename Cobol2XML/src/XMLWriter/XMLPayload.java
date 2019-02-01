@@ -170,6 +170,7 @@ public class XMLPayload {
 	public void writeFile(String filename) {
 		try {
 		// write the content into xml file
+		// System.out.println("WriteFile Filename: " + filename);
         TransformerFactory transformerFactory =
         TransformerFactory.newInstance();
         Transformer transformer =
