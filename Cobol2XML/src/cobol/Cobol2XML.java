@@ -32,7 +32,7 @@ public class Cobol2XML {
 	 * And then produce a well-formed XML file with the data identified
 	 * 
 	 * First command line parameter must be path to cobol source file, such as
-	 * "C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\base.cbl"
+	 * "C:\\Users\\<your user name>\\git\\cobol2xml\\base.cbl"
 	 * 
 	 * Or, when you know exactly where the repository is located and have the file in the right place, simply
 	 * "base.cbl"
