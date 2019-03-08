@@ -25,6 +25,7 @@ import parse.Empty;
 import parse.Parser;
 import parse.Sequence;
 import parse.tokens.CaselessLiteral;
+import parse.tokens.Literal;
 import parse.tokens.Num;
 import parse.tokens.Symbol;
 import parse.tokens.Tokenizer;
@@ -39,13 +40,15 @@ public class CobolParser {
 	 * as an assembly's target.
 	 *
 	 * @return a parser that will recognize and build a 
-	 *         <code>COBOL</object> from a source code file.
+	 *         <object>COBOL</object> from a source code file.
 	 */
 	public Parser cobol() {
 		Alternation a = new Alternation();
 		
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
+		
+		a.add( commentLine() ); 
 		
 		a.add( ProgramID() );
 		
@@ -57,6 +60,26 @@ public class CobolParser {
 		
 		a.add(new Empty());
 		return a;
+	}
+	
+	/*
+	 * Return a parser that will recognize the grammar:
+	 * 
+	 *    ***--- comment text
+	 *
+	 */
+	protected Parser commentLine() {
+		//System.out.println("commentLine()");
+		Sequence s = new Sequence();
+		s.add(new Symbol("*"));
+		s.add(new Symbol("*"));
+		s.add(new Symbol("*"));
+		s.add(new Symbol("-"));
+		s.add(new Symbol("-"));
+		s.add(new Symbol("-"));
+		s.add(new Word().setAssembler(new CommentLineAssembler()) );
+		//s.setAssembler(new CommentLineAssembler());
+		return s;
 	}
 
 

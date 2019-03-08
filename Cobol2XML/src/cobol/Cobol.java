@@ -24,6 +24,7 @@ package cobol;
 import utensil.*;
 
 public class Cobol implements PubliclyCloneable {
+	protected String commentLine;
 	protected String program_id;
 	protected String sectionName;
 	protected String divisionName;
@@ -93,6 +94,16 @@ public class Cobol implements PubliclyCloneable {
 		return true;
 	}
 
+	/**
+	 * Return line of commented text from the COBOL program.
+	 *
+	 * @return line of commented text from the COBOL program
+	 */
+	public String getCommentLine() {
+		//System.out.println("getComment()");
+		return commentLine;
+	}
+	
 
 	/**
 	 * Return the name of this COBOL program.
@@ -113,9 +124,9 @@ public class Cobol implements PubliclyCloneable {
 	}
 
 	/**
-	 * Return the section name.
+	 * Return the division name.
 	 *
-	 * @return the section name
+	 * @return the division name
 	 */
 	public String getDivisionName() {
 		return divisionName;
@@ -148,6 +159,17 @@ public class Cobol implements PubliclyCloneable {
 	public int getYearDateWritten() {
 		return yearDateWritten;
 	}
+	
+	/**
+	 * Set a line of commented text from the COBOL program.
+	 *
+	 * @return line of commented text from the COBOL program
+	 */
+	public void setCommentLine(String commentLine) {
+		//System.out.println("setComment(): " + commentLine);
+		this.commentLine = commentLine;
+	}
+
 
 
 	/**
@@ -197,9 +219,9 @@ public class Cobol implements PubliclyCloneable {
 	}
 	
 	/**
-	 * Set the section name 
+	 * Set the division name 
 	 *
-	 * @param  String sectionName
+	 * @param  String divisionName
 	 */
 	public void setDivisionName(String divisionName) {
 		this.divisionName = divisionName;

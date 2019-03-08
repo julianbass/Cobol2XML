@@ -60,6 +60,18 @@ public class XMLPayload {
 	public void addElements(Cobol c) {
 		
 		/*
+		 *  add commentLine element
+		 */		
+		String commentLine = c.getCommentLine();
+		if (commentLine != null) {
+			this.addCommentLineElement( commentLine );
+			//System.out.println("Got Section");
+			// Add contents of procedure division
+		} else {
+			//System.out.println("Comment Line null");
+		}
+		
+		/*
 		 *  add sectionName element
 		 */		
 		String sectionName = c.getSectionName();
@@ -80,7 +92,7 @@ public class XMLPayload {
 			//System.out.println("Got Section");
 			// Add contents of procedure division
 		} else {
-			//System.out.println("Section Name null");
+			//System.out.println("Division Name null");
 		}
 		
 		/*
@@ -133,6 +145,18 @@ public class XMLPayload {
 		}
 	}
  	
+	void addCommentLineElement(String stringElement) {
+		//  Comment Line element
+		
+		if(stringElement != null) {
+			Element cobolname = doc.createElement("comment");
+			cobolname.appendChild(doc.createTextNode(stringElement));
+			rootElement.appendChild(cobolname);
+		}
+	}
+ 	
+ 	
+ 	
  	void addSectionElement(String stringElement) {
 		//  Section element
 		
@@ -144,8 +168,7 @@ public class XMLPayload {
 	}
  	
  	void addDivisionElement(String stringElement) {
-		//  Section element
-		
+		//  Division element
 		if(stringElement != null) {
 			Element cobolname = doc.createElement("division");
 			cobolname.appendChild(doc.createTextNode(stringElement));
