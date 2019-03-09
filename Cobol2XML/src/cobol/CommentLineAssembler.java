@@ -32,8 +32,6 @@ public class CommentLineAssembler extends Assembler {
  */
 public void workOn(Assembly a) {
 	//System.out.println("commentLineAssembler");
-	//String delimiter = defaultDelimiter();
-	//System.out.println("tokenString: " + a.remainder(defaultDelimiter()) );
 	Cobol c = new Cobol();
 	Token t = (Token) a.pop(); // hopefully the token following the comment
 	
