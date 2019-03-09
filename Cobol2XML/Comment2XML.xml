@@ -8,7 +8,4 @@
 <division>data</division>
 <section>working-storage</section>
 <division>procedure</division>
-<comment>convert from decimal to base system</comment>
-<comment>convert from base to dicimal system</comment>
-<comment>allineamento a destra della variabile entry_char ( ver 2.3 0.1 o sup )</comment>
 </cobol>

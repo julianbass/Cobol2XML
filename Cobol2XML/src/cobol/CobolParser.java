@@ -49,8 +49,6 @@ public class CobolParser {
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
 		
-		a.add( commentLine() ); 
-		
 		a.add( ProgramID() );
 		
 		a.add( DivisionName() );
@@ -63,41 +61,6 @@ public class CobolParser {
 		return a;
 	}
 	
-	/*
-	 * Return a parser that will recognize the grammar:
-	 * 
-	 *    ***--- comment text
-	 *
-	 */
-	protected Parser commentLine() {
-		//System.out.println("commentLine()");
-		Sequence s = new Sequence();
-		s.add(new Symbol("*").discard());
-		s.add(new Symbol("*").discard());
-		s.add(new Symbol("*").discard());
-		s.add(new Symbol("-").discard());
-		s.add(new Symbol("-").discard());
-		s.add(new Symbol("-").discard());
-		//s.add(new Word().setAssembler(new CommentLineAssembler()) );
-		
-		s.add(new Word() );
-		s.setAssembler(new CommentLineAssembler());
-		/*
-		 *  Fix problem where only 
-		 *  first word of each ocmment is inserted into XML
-		 */
-		/*Alternation a = new Alternation();
-		a.add(new Word() );
-		a.add(new Empty() );
-		Repetition r = new Repetition(a);
-		
-		//s.add(new Word() );
-		r.setAssembler(new CommentLineAssembler());*/
-	
-		return s;
-	}
-
-
 	/*
 	 * Return a parser that will recognize the grammar:
 	 * 
