@@ -21,6 +21,7 @@
 package cobol;
 
 import parse.Alternation;
+import parse.Repetition;
 import parse.Empty;
 import parse.Parser;
 import parse.Sequence;
@@ -71,14 +72,28 @@ public class CobolParser {
 	protected Parser commentLine() {
 		//System.out.println("commentLine()");
 		Sequence s = new Sequence();
-		s.add(new Symbol("*"));
-		s.add(new Symbol("*"));
-		s.add(new Symbol("*"));
-		s.add(new Symbol("-"));
-		s.add(new Symbol("-"));
-		s.add(new Symbol("-"));
-		s.add(new Word().setAssembler(new CommentLineAssembler()) );
-		//s.setAssembler(new CommentLineAssembler());
+		s.add(new Symbol("*").discard());
+		s.add(new Symbol("*").discard());
+		s.add(new Symbol("*").discard());
+		s.add(new Symbol("-").discard());
+		s.add(new Symbol("-").discard());
+		s.add(new Symbol("-").discard());
+		//s.add(new Word().setAssembler(new CommentLineAssembler()) );
+		
+		s.add(new Word() );
+		s.setAssembler(new CommentLineAssembler());
+		/*
+		 *  Fix problem where only 
+		 *  first word of each ocmment is inserted into XML
+		 */
+		/*Alternation a = new Alternation();
+		a.add(new Word() );
+		a.add(new Empty() );
+		Repetition r = new Repetition(a);
+		
+		//s.add(new Word() );
+		r.setAssembler(new CommentLineAssembler());*/
+	
 		return s;
 	}
 

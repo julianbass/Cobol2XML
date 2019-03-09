@@ -31,12 +31,20 @@ public class CommentLineAssembler extends Assembler {
  * @param   Assembly   the assembly to work on
  */
 public void workOn(Assembly a) {
-	System.out.println("commentLineAssembler");
+	//System.out.println("commentLineAssembler");
+	//String delimiter = defaultDelimiter();
+	//System.out.println("tokenString: " + a.remainder(defaultDelimiter()) );
 	Cobol c = new Cobol();
 	Token t = (Token) a.pop(); // hopefully the token following the comment
 	
 	if(t.sval() != null) {
-		c.setCommentLine(t.sval().trim());
+		c.setCommentLine(t.sval().trim()+ defaultDelimiter() + a.remainder(defaultDelimiter()));
 		a.setTarget(c); }
 	}
+
+public String defaultDelimiter() {
+	String delimiter = " ";
+	return delimiter; 
+	}
+
 }

@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <cobol>
-<comment>convert</comment>
+<division>identification</division>
+<Program-ID>base</Program-ID>
+<day-date-written>7</day-date-written>
+<month-date-written>mar</month-date-written>
+<year-date-written>1995</year-date-written>
+<division>data</division>
+<section>working-storage</section>
+<division>procedure</division>
+<comment>convert from decimal to base system</comment>
+<comment>convert from base to dicimal system</comment>
+<comment>allineamento a destra della variabile entry_char ( ver 2.3 0.1 o sup )</comment>
 </cobol>
