@@ -67,21 +67,23 @@ public class Cobol2XML {
 		// Look through source code file line by line
 		while (true) {
 			// throws IOException
-			String s = r.readLine();
-			if (s == null) {
+			String s = r.readLine(); //Read each line of Cobol file
+			if (s == null) { //If end of file reached stop.
 				break;
 			}
+			//####
 			t.setString(s);
-			Assembly in = new TokenAssembly(t);
-			Assembly out = p.bestMatch(in);
-			Cobol c = new Cobol();
-			c = (Cobol) out.getTarget();
+			Assembly in = new TokenAssembly(t); //Pass token into an Assembly (sort of an array of tokens)
+			Assembly out = p.bestMatch(in); //Store the returned assembly of matched cobol syntax
+			Cobol c = new Cobol(); //Create a new Cobol class that stores Cobol syntax info
+			c = (Cobol) out.getTarget(); //store the matched assembly into the Cobol class 
 			
-			if(c != null)
+			if(c != null) //If no match found 
 				xmlp.addElements(c); 
+			//####
 			
 		}
-		xmlp.writeFile(args[1]);
+		xmlp.writeFile(args[1]); //Write converted syntax to file.
 		r.close();
 	}
 
