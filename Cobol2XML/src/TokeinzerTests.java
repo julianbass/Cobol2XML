@@ -18,7 +18,7 @@ public class TokeinzerTests {
 		Parser p = CobolParser.start();
 		
 		
-		t.setCharacterState(   0,   ' ', new WhitespaceState());
+//		t.setCharacterState(   0,   ' ', new WhitespaceState());
 		
 		t.setString("program-id. base_jb12");
 		Assembly in = new TokenAssembly(t);
