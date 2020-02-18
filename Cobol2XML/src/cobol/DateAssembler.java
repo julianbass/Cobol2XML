@@ -35,7 +35,7 @@ public void workOn(Assembly a) {
 	Token t = (Token) a.pop();
 	String tokenString = t.sval().trim();
 	
-	// deconstrct toak string into month and year components
+	// deconstruct token string into month and year components
 	String monthString = "" + tokenString.charAt(0) + tokenString.charAt(1) + tokenString.charAt(2);
 	c.setMonthDateWritten(monthString);
 	

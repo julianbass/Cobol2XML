@@ -118,6 +118,18 @@ public class XMLPayload {
 		if(yearDateWritten != 0) {
 			this.addYearDateWrittenElement( yearDateWritten );
 		}
+		
+		/*
+		 *  add constant element
+		 */
+		String constantName = c.getConstantName();
+		if(constantName != null) {
+			this.addConstantValueElement(constantName, c.getConstantValue(), c.getLineNumber());
+//			System.out.println("Got section");
+			// Add contents of procedure division
+		} else {
+//			System.out.println("Constant name null");
+		}
 
 	}
 	
@@ -191,6 +203,37 @@ public class XMLPayload {
 			Element cobolname = doc.createElement("year-date-written");
 			String s = "" + intElement;
 			cobolname.appendChild(doc.createTextNode(s));
+			rootElement.appendChild(cobolname);
+		}
+	}
+	
+	void addConstantValueElement(String constantName, double constantValue, int lineNumber) {
+		// Constant element
+		
+		if(constantName != null) {
+			Element cobolname = doc.createElement("Constant");
+			
+			// insert name of constant into XML file
+			Element constID = doc.createElement("Constant");
+			Attr attrType1 = doc.createAttribute("Name");
+			attrType1.setValue(constantName);
+			constID.setAttributeNode(attrType1);
+			cobolname.appendChild(constID); //add name element to 'Constant' element
+			
+			// insert line number of constant into XML file
+			Element lineID = doc.createElement(constantName);
+			Attr attrType2 = doc.createAttribute("Line_Number");
+			attrType2.setValue(Integer.toString(lineNumber));
+			lineID.setAttributeNode(attrType2);
+			cobolname.appendChild(lineID);
+			
+			// insert value of constant into XML file
+			Element value = doc.createElement(constantName);
+			Attr attrType3 = doc.createAttribute("Value");
+			attrType3.setValue(Double.toString(constantValue));
+			value.setAttributeNode(attrType3);
+			cobolname.appendChild(value);
+			
 			rootElement.appendChild(cobolname);
 		}
 	}
