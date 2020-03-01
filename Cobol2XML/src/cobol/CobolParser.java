@@ -28,9 +28,12 @@ import parse.Sequence;
 import parse.tokens.CaselessLiteral;
 import parse.tokens.Literal;
 import parse.tokens.Num;
+import parse.tokens.QuotedString;
 import parse.tokens.Symbol;
 import parse.tokens.Tokenizer;
+import parse.tokens.WhitespaceState;
 import parse.tokens.Word;
+import parse.tokens.WordState;
 
 public class CobolParser {
 	/**
@@ -49,6 +52,8 @@ public class CobolParser {
 		Symbol fullstop = new Symbol('.');
 		fullstop.discard();
 		
+		a.add( commentLine() );
+		
 		a.add( ProgramID() );
 		
 		a.add( DivisionName() );
@@ -59,7 +64,7 @@ public class CobolParser {
 		
 		a.add( constantValue() );
 		
-		a.add( commentLine() );
+		
 		
 		a.add(new Empty());
 		return a;
@@ -163,7 +168,7 @@ public class CobolParser {
 		s.add(new Symbol("-"));
 		s.add(new Symbol("-"));
 		s.add(new Symbol("-"));
-		s.add(new Word().setAssembler(new CommentLineAssembler()) );
+		s.add(new Word().setAssembler(new CommentLineAssembler()));
 		return s;
 	}
 	
