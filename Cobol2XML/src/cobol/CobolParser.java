@@ -59,6 +59,8 @@ public class CobolParser {
 		
 		a.add( constantValue() );
 		
+		a.add( commentLine() );
+		
 		a.add(new Empty());
 		return a;
 	}
@@ -146,6 +148,25 @@ public class CobolParser {
 		return s;
 	}
 
+	
+	/*
+	 * Return a parser that will recognise the grammar:
+	 * 
+	 * 		***--- comment text
+	 * 
+	 */
+	protected Parser commentLine() {
+		Sequence s = new Sequence();
+		s.add(new Symbol("*"));
+		s.add(new Symbol("*"));
+		s.add(new Symbol("*"));
+		s.add(new Symbol("-"));
+		s.add(new Symbol("-"));
+		s.add(new Symbol("-"));
+		s.add(new Word().setAssembler(new CommentLineAssembler()) );
+		return s;
+	}
+	
 
 	/**
 	 * Return the primary parser for this class -- cobol().

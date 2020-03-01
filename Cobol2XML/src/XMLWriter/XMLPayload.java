@@ -130,6 +130,18 @@ public class XMLPayload {
 		} else {
 //			System.out.println("Constant name null");
 		}
+		
+		/*
+		 * add comments element
+		 */
+		String commentLine = c.getCommentLine();
+		if(commentLine != null) {
+			this.addCommentLineElement(commentLine);
+			//System.out.println("Got section");
+			// Add contents of procedure division
+		}else {
+			//System.out.println("Comment line null");
+		}
 
 	}
 	
