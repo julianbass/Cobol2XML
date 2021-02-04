@@ -47,7 +47,7 @@ public class Cobol2XML {
 		System.out.println("Cobol2XML V0.1.0");
 		XMLPayload xmlp = new XMLPayload();
 		
-		/* The first command line paprameter is used to get the cobol source file namee
+		/* The first command line parameter is used to get the cobol source file namee
 		 * In case you are not sure if you are pointing toward the right file, print out the filename
 		 * like this...
 		 *
