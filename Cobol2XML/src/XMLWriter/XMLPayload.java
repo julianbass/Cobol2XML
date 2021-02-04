@@ -30,7 +30,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Attr;
-//import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -64,10 +63,10 @@ public class XMLPayload {
 		String sectionName = c.getSectionName();
 		if (sectionName != null) {
 			this.addSectionElement( sectionName );
-			//System.out.println("Got Section");
+			
 			// Add contents of procedure division
 		} else {
-			//System.out.println("Section Name null");
+			// Section Name null
 		}
 		
 		/*
@@ -76,10 +75,10 @@ public class XMLPayload {
 		String divisionName = c.getDivisionName();
 		if (divisionName != null) {
 			this.addDivisionElement( divisionName );
-			//System.out.println("Got Section");
+			// Got Division
 			// Add contents of procedure division
 		} else {
-			//System.out.println("Division Name null");
+			// Division Name null
 		}
 		
 		/*
@@ -88,10 +87,10 @@ public class XMLPayload {
 		String programIDName = c.getProgram_ID();
 		if (programIDName != null) {
 			this.addProgram_IDElement( programIDName );
-			//System.out.println("Got Section");
+			// Got ProgramID
 			// Add contents of procedure division
 		} else {
-			//System.out.println("Section Name null");
+			// ProgramID null
 		}
 		
 		/*
@@ -107,10 +106,10 @@ public class XMLPayload {
 		String monthDateWritten = c.getMonthDateWritten();
 		if (monthDateWritten != null) {
 			this.addMonthDateWrittenElement( monthDateWritten );
-			//System.out.println("Got Section");
+			// Got month
 			// Add contents of procedure division
 		} else {
-			//System.out.println("Section Name null");
+			// month null
 		}
 
 		// YearDateWritten
@@ -198,7 +197,7 @@ public class XMLPayload {
 	public void writeFile(String filename) {
 		try {
 		// write the content into xml file
-		// System.out.println("WriteFile Filename: " + filename);
+		// insert debug printf "WriteFile Filename: " + filename
         TransformerFactory transformerFactory =
         TransformerFactory.newInstance();
         Transformer transformer =
