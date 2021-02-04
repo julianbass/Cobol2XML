@@ -64,7 +64,7 @@ public class CobolParser {
 	/*
 	 * Return a parser that will recognize the grammar:
 	 * 
-	 *    Program Identifier = Word;
+	 *    Program Identifier = Word
 	 *
 	 */
 	protected Parser ProgramID() {
@@ -80,7 +80,7 @@ public class CobolParser {
 	/*
 	 * Return a parser that will recognise the grammar:
 	 * 
-	 *    <divisionName> division;
+	 *    <divisionName> division
 	 *
 	 */
 	protected Parser DivisionName() {
@@ -94,7 +94,7 @@ public class CobolParser {
 	/*
 	 * Return a parser that will recognize the grammar:
 	 * 
-	 *    Program Identifier = Word;
+	 *    Section Name = Word
 	 *
 	 */
 	protected Parser SectionName() {
@@ -109,7 +109,7 @@ public class CobolParser {
 	/*
 	 * Return a parser that will recognise the grammar:
 	 * 
-	 *    working-storage section;
+	 *    working-storage section
 	 *
 	 */
 	protected Parser DateWritten() {
