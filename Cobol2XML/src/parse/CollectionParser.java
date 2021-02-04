@@ -30,28 +30,28 @@ public abstract class CollectionParser extends Parser {
 /**
  * Supports subclass constructors with no arguments.
  */
-public CollectionParser() {
+protected CollectionParser() {
 }
 /**
  * Supports subclass constructors with a name argument
  *
  * @param   string   the name of this parser
  */
-public CollectionParser(String name) {
+protected CollectionParser(String name) {
 	super(name);
 }
 /**
  * A convenient way to construct a CollectionParser with the
  * given parser.
  */
-public CollectionParser(Parser p) {
+protected CollectionParser(Parser p) {
 	subparsers.add(p);;
 }
 /**
  * A convenient way to construct a CollectionParser with the
  * given parsers.
  */
-public CollectionParser(Parser p1, Parser p2) {
+protected CollectionParser(Parser p1, Parser p2) {
 	subparsers.add(p1);
 	subparsers.add(p2);
 }
@@ -59,7 +59,7 @@ public CollectionParser(Parser p1, Parser p2) {
  * A convenient way to construct a CollectionParser with the
  * given parsers.
  */
-public CollectionParser(Parser p1, Parser p2, Parser p3) {
+protected CollectionParser(Parser p1, Parser p2, Parser p3) {
 	subparsers.add(p1);
 	subparsers.add(p2);
 	subparsers.add(p3);
@@ -68,7 +68,7 @@ public CollectionParser(Parser p1, Parser p2, Parser p3) {
  * A convenient way to construct a CollectionParser with the
  * given parsers.
  */
-public CollectionParser(
+protected CollectionParser(
 	Parser p1, 
 	Parser p2, 
 	Parser p3, 
