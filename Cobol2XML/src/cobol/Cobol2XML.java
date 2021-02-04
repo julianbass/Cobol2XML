@@ -52,12 +52,11 @@ public class Cobol2XML {
 		 * like this...
 		 *
 		 * System.out.println("arg[0]" + args[0]);
-		 */
-		
-		/*
+		 * 
 		 * A rather crude approach is to hard code the filename for the cobol source file, like this
 		 * InputStream is = new FileInputStream("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\base.cbl");
 		 */
+
 		InputStream is = new FileInputStream(args[0]);
 		BufferedReader r = 	new BufferedReader(new InputStreamReader(is));
 
