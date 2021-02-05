@@ -46,9 +46,9 @@ protected boolean canGenerateProblem(int depth) {
 	logTestString(s);
 	Assembly a = assembly(s);
 	a.setTarget(freshTarget());
-	Vector<Assembly> in = new Vector<Assembly>();
-	in.addElement(a);
-	Vector<?> out = completeMatches(p.match(in));
+	ArrayList<Assembly> in = new ArrayList<Assembly>();
+	in.add(a);
+	ArrayList<?> out = completeMatches(p.match(in));
 	if (out.size() != 1) {
 		logProblemFound(s, out.size());
 		return true;
@@ -65,13 +65,15 @@ protected boolean canGenerateProblem(int depth) {
  *
  * @return   a collection of completely matched assemblies
  */
-public static Vector<Assembly> completeMatches(Vector<?> in) {
-	Vector<Assembly> out = new Vector<Assembly>();
-	Enumeration<?> e = in.elements();
+public static ArrayList<Assembly> completeMatches(ArrayList<?> in) {
+	ArrayList<Assembly> out = new ArrayList<Assembly>();
+	//Enumeration<?> e = in.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<?> e = Collections.enumeration(in);
 	while (e.hasMoreElements()) {
 		Assembly a = (Assembly) e.nextElement();
 		if (!a.hasMoreElements()) {
-			out.addElement(a);
+			out.add(a);
 		}
 	}
 	return out;

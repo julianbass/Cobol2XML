@@ -41,7 +41,7 @@ protected boolean qualifies(Object o) {
  * Create a set with one random quoted string (with 2 to
  * 6 characters).
  */
-public Vector<String> randomExpansion(int maxDepth, int depth) {
+public ArrayList<String> randomExpansion(int maxDepth, int depth) {
 	int n = (int) (5.0 * Math.random());
 	
 	char[] letters = new char[n + 2];
@@ -53,8 +53,8 @@ public Vector<String> randomExpansion(int maxDepth, int depth) {
 		letters[i + 1] = (char) c;
 	}
 	
-	Vector<String> v = new Vector<String>();
-	v.addElement(new String(letters));
+	ArrayList<String> v = new ArrayList<String>();
+	v.add(new String(letters));
 	return v;
 }
 /**

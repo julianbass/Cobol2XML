@@ -78,7 +78,7 @@ public Sequence(
  *
  * @param   Vector   a collection of previously visited parsers
  */
-public void accept(ParserVisitor pv, Vector<Assembly> visited) {
+public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitSequence(this, visited);
 }
 /**
@@ -92,9 +92,12 @@ public void accept(ParserVisitor pv, Vector<Assembly> visited) {
  * @param   Vector   a vector of assemblies to match against
  *
  */
-public Vector<Assembly> match(Vector<Assembly> in) {
-	Vector<Assembly> out = in;
-	Enumeration<Parser> e = subparsers.elements();
+public ArrayList<Assembly> match(ArrayList<Assembly> in) {
+	ArrayList<Assembly> out = in;
+	//Enumeration<Parser> e = subparsers.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<Parser> e = Collections.enumeration(subparsers); 
+
 	while (e.hasMoreElements()) {
 		Parser p = (Parser) e.nextElement();
 		out = p.matchAndAssemble(out);
@@ -108,15 +111,20 @@ public Vector<Assembly> match(Vector<Assembly> in) {
  * Create a random expansion for each parser in this 
  * sequence and return a collection of all these expansions.
  */
-protected Vector<Assembly> randomExpansion(int maxDepth, int depth) {
-	Vector<Assembly> v = new Vector<Assembly>();
-	Enumeration<Parser> e = subparsers.elements();
+protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
+	ArrayList<Assembly> v = new ArrayList<Assembly>();
+	//Enumeration<Parser> e = subparsers.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<Parser> e = Collections.enumeration(subparsers); 
+
 	while (e.hasMoreElements()) {
 		Parser p = (Parser) e.nextElement();
-		Vector<?> w = p.randomExpansion(maxDepth, depth++);
-		Enumeration<?> f = w.elements();
+		ArrayList<?> w = p.randomExpansion(maxDepth, depth++);
+		// Enumeration<?> f = w.elements();
+		// Creating object of type Enumeration<Parser> 
+	    Enumeration<?> f = Collections.enumeration(w); 
 		while (f.hasMoreElements()) {
-			v.addElement((Assembly) f.nextElement());
+			v.add((Assembly) f.nextElement());
 		}
 	}
 	return v;

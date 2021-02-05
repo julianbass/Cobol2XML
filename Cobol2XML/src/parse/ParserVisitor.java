@@ -28,46 +28,46 @@ public abstract class ParserVisitor {
  *
  * @param   Alternation   the parser to visit
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   ArrayList   a collection of previously visited parsers
  *
  */
 public abstract void visitAlternation(
-	Alternation a, Vector<Assembly> visited);
+	Alternation a, ArrayList<Assembly> visited);
 /**
  * Visit an empty parser.
  *
  * @param   Empty   the parser to visit
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   ArrayList   a collection of previously visited parsers
  *
  */
-public abstract void visitEmpty(Empty e, Vector<Assembly> visited);
+public abstract void visitEmpty(Empty e, ArrayList<Assembly> visited);
 /**
  * Visit a repetition.
  *
  * @param   Repetition   the parser to visit
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   ArrayList   a collection of previously visited parsers
  *
  */
 public abstract void visitRepetition(
-	Repetition r, Vector<Assembly> visited);
+	Repetition r, ArrayList<Assembly> visited);
 /**
  * Visit a sequence.
  *
  * @param   Sequence   the parser to visit
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   ArrayList   a collection of previously visited parsers
  *
  */
-public abstract void visitSequence(Sequence s, Vector<Assembly> visited);
+public abstract void visitSequence(Sequence s, ArrayList<Assembly> visited);
 /**
  * Visit a terminal.
  *
  * @param   Terminal   the parser to visit
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   ArrayList   a collection of previously visited parsers
  *
  */
-public abstract void visitTerminal(Terminal t, Vector<Assembly> visited);
+public abstract void visitTerminal(Terminal t, ArrayList<Assembly> visited);
 }

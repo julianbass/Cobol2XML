@@ -72,7 +72,7 @@ public Repetition(Parser subparser, String name) {
  *
  * @param   Vector   a collection of previously visited parsers
  */
-public void accept(ParserVisitor pv, Vector<Assembly> visited) {
+public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitRepetition(this, visited);
 }
 /**
@@ -96,18 +96,20 @@ public Parser getSubparser() {
  * @return   a Vector of assemblies that result from 
  *           matching against a beginning set of assemblies
  *
- * @param   Vector   a vector of assemblies to match against
+ * @param   ArrayList   a ArrayList of assemblies to match against
  *
  */
-public Vector<Assembly> match(Vector<Assembly> in) {
+public ArrayList<Assembly> match(ArrayList<Assembly> in) {
 	if (preAssembler != null) {
-		Enumeration<Assembly> e = in.elements();
+		//Enumeration<Assembly> e = in.elements();
+		// Creating object of type Enumeration<Parser> 
+	    Enumeration<Assembly> e = Collections.enumeration(in);
 		while (e.hasMoreElements()) {
 			preAssembler.workOn((Assembly) e.nextElement());
 		}
 	}
-	Vector<Assembly> out = elementClone(in);
-	Vector<Assembly> s = in; // a working state
+	ArrayList<Assembly> out = elementClone(in);
+	ArrayList<Assembly> s = in; // a working state
 	while (!s.isEmpty()) {
 		s = subparser.matchAndAssemble(s);
 		add(out, s);
@@ -118,18 +120,20 @@ public Vector<Assembly> match(Vector<Assembly> in) {
  * Create a collection of random elements that correspond to
  * this repetition.
  */
-protected Vector<Assembly> randomExpansion(int maxDepth, int depth) {
-	Vector<Assembly> v = new Vector<Assembly>();
+protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
+	ArrayList<Assembly> v = new ArrayList<Assembly>();
 	if (depth >= maxDepth) {
 		return v;
 	}
 
 	int n = (int) (EXPWIDTH * Math.random());
 	for (int j = 0; j < n; j++) {
-		Vector<?> w = subparser.randomExpansion(maxDepth, depth++);
-		Enumeration<?> e = w.elements();
+		ArrayList<?> w = subparser.randomExpansion(maxDepth, depth++);
+		// Enumeration<?> e = w.elements();
+		// Creating object of type Enumeration<Parser> 
+	    Enumeration<?> e = Collections.enumeration(w);
 		while (e.hasMoreElements()) {
-			v.addElement((Assembly) e.nextElement());
+			v.add((Assembly) e.nextElement());
 		}
 	}
 	return v;
@@ -149,7 +153,7 @@ public Parser setPreAssembler(Assembler preAssembler) {
 /*
  * Returns a textual description of this parser.
  */
- protected String unvisitedString(Vector<Parser> visited) {
+ protected String unvisitedString(ArrayList<Parser> visited) {
 	return subparser.toString(visited) + "*";
 }
 }

@@ -21,15 +21,15 @@ public abstract class Assembler {
 	 * @return   Vector   the elements above the specified fence
 	 * 
 	 */
-	public static Vector<Object> elementsAbove(Assembly a, Object fence) {
-		Vector<Object> items = new Vector<Object>();
+	public static ArrayList<Object> elementsAbove(Assembly a, Object fence) {
+		ArrayList<Object> items = new ArrayList<Object>();
 		 
 		while (!a.stackIsEmpty()) {
 			Object top = a.pop();
 			if (top.equals(fence)) {
 				break;
 			}
-			items.addElement(top);
+			items.add(top);
 		}
 		return items;
 	}

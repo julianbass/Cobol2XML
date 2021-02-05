@@ -42,10 +42,10 @@ protected boolean qualifies(Object o) {
  * Create a set with one random number (between 0 and 
  * 100).
  */
-public Vector<String> randomExpansion(int maxDepth, int depth) {
+public ArrayList<String> randomExpansion(int maxDepth, int depth) {
 	double d = Math.floor(1000.0 * Math.random()) / 10;
-	Vector<String> v = new Vector<String>();
-	v.addElement(Double.toString(d));
+	ArrayList<String> v = new ArrayList<String>();
+	v.add(Double.toString(d));
 	return v;
 }
 /**

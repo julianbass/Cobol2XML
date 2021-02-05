@@ -40,7 +40,7 @@ protected boolean qualifies(Object o) {
  * Create a set with one random word (with 3 to 7 
  * characters).
  */
-public Vector<String> randomExpansion(int maxDepth, int depth) {
+public ArrayList<String> randomExpansion(int maxDepth, int depth) {
 	int n = (int) (5.0 * Math.random()) + 3;
 	
 	char[] letters = new char[n];
@@ -49,8 +49,8 @@ public Vector<String> randomExpansion(int maxDepth, int depth) {
 		letters[i] = (char) c;
 	}
 	
-	Vector<String> v = new Vector<String>();
-	v.addElement(new String(letters));
+	ArrayList<String> v = new ArrayList<String>();
+	v.add(new String(letters));
 	return v;
 }
 /**

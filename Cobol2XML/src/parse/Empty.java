@@ -29,9 +29,9 @@ public class Empty extends Parser {
  *
  * @param   ParserVisitor   the visitor to accept
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   ArrayList   a collection of previously visited parsers
  */
-public void accept(ParserVisitor pv, Vector<Assembly> visited) {
+public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitEmpty(this, visited);
 }
 /**
@@ -43,20 +43,20 @@ public void accept(ParserVisitor pv, Vector<Assembly> visited) {
  * @param   Vector   a vector of assemblies to match against
  *
  */
-public Vector<Assembly> match(Vector<Assembly> in) {
+public ArrayList<Assembly> match(ArrayList<Assembly> in) {
 	return elementClone(in);
 }
 /*
  * There really is no way to expand an empty parser, so
  * return an empty vector.
  */
-protected Vector<Assembly> randomExpansion(int maxDepth, int depth) {
-	return new Vector<Assembly>();
+protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
+	return new ArrayList<Assembly>();
 }
 /*
  * Returns a textual description of this parser.
  */
- protected String unvisitedString(Vector<Parser> visited) {
+ protected String unvisitedString(ArrayList<Parser> visited) {
 	return " empty ";
 }
 }

@@ -51,7 +51,7 @@ public Terminal(String name) {
  *
  * @param   Vector   a collection of previously visited parsers
  */
-public void accept(ParserVisitor pv, Vector<Assembly> visited) {
+public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitTerminal(this, visited);
 }
 /**
@@ -74,14 +74,17 @@ public Terminal discard() {
  * @param   Vector   a vector of assemblies to match against
  *
  */
-public Vector<Assembly> match(Vector<Assembly> in) {
-	Vector<Assembly> out = new Vector<Assembly>();
-	Enumeration<Assembly> e = in.elements();
+public ArrayList<Assembly> match(ArrayList<Assembly> in) {
+	ArrayList<Assembly> out = new ArrayList<Assembly>();
+	//Enumeration<Assembly> e = in.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<Assembly> e = Collections.enumeration(in); 
+
 	while (e.hasMoreElements()) {
 		Assembly a = (Assembly) e.nextElement();
 		Assembly b = matchOneAssembly(a);
 		if (b != null) {
-			out.addElement(b);
+			out.add(b);
 		}
 	}
 	return out;
@@ -132,9 +135,9 @@ protected boolean qualifies(Object o) {
  * string representation of itself. (Most subclasses 
  * override this.)
  */
-public Vector<String> randomExpansion(int maxDepth, int depth) {
-	Vector<String> v = new Vector<String>();
-	v.addElement(this.toString());
+public ArrayList<String> randomExpansion(int maxDepth, int depth) {
+	ArrayList<String> v = new ArrayList<String>();
+	v.add(this.toString());
 	return v;
 }
 /**
@@ -154,7 +157,7 @@ public Terminal setDiscard(boolean discard) {
 /*
  * Returns a textual description of this parser.
  */
-protected String unvisitedString(Vector<Parser> visited) {
+protected String unvisitedString(ArrayList<Parser> visited) {
 	return "any";
 }
 }

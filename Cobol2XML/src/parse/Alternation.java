@@ -78,7 +78,7 @@ public Alternation(
  *
  * @param   Vector   a collection of previously visited parsers
  */
-public void accept(ParserVisitor pv, Vector<Assembly> visited) {
+public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitAlternation(this, visited);
 }
 /**
@@ -92,9 +92,12 @@ public void accept(ParserVisitor pv, Vector<Assembly> visited) {
  * @param   Vector   a vector of assemblies to match against
  *
  */
-public Vector<Assembly> match(Vector<Assembly> in) {
-	Vector<Assembly> out = new Vector<Assembly>();
-	Enumeration<Parser> e = subparsers.elements();
+public ArrayList<Assembly> match(ArrayList<Assembly> in) {
+	ArrayList<Assembly> out = new ArrayList<Assembly>();
+	// Enumeration<Parser> e = subparsers.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<Parser> e = Collections.enumeration(subparsers); 
+
 	while (e.hasMoreElements()) {
 		Parser p = e.nextElement();
 		add(out, p.matchAndAssemble(in));
@@ -105,43 +108,46 @@ public Vector<Assembly> match(Vector<Assembly> in) {
  * Create a random collection of elements that correspond to
  * this alternation.
  */
-protected Vector<?> randomExpansion(int maxDepth, int depth) {
+protected ArrayList<?> randomExpansion(int maxDepth, int depth) {
 	if (depth >= maxDepth) {
 		return randomSettle(maxDepth, depth);
 	}
 	double n = (double) subparsers.size();
 	int i = (int) (n * Math.random());
-	Parser j = (Parser) subparsers.elementAt(i);
+	Parser j = (Parser) subparsers.get(i);
 	return j.randomExpansion(maxDepth, depth++);
 }
 /*
  * This method is similar to randomExpansion, but it will
  * pick a terminal if one is available.
  */
-protected Vector<?> randomSettle(int maxDepth, int depth) {
+protected ArrayList<?> randomSettle(int maxDepth, int depth) {
 	
 	// which alternatives are terminals?
 
-	Vector<Parser> terms = new Vector<Parser>();
-	Enumeration<Parser> e = subparsers.elements();
+	ArrayList<Parser> terms = new ArrayList<Parser>();
+	//Enumeration<Parser> e = subparsers.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<Parser> e = Collections.enumeration(subparsers); 
+
 	while (e.hasMoreElements()) {
 		Parser j = e.nextElement();
 		if (j instanceof Terminal) {
-			terms.addElement(j);
+			terms.add(j);
 		}
 	}
 
 	// pick one of the terminals or, if there are no
 	// terminals, pick any subparser
 
-	Vector<Parser> which = terms;
+	ArrayList<Parser> which = terms;
 	if (terms.isEmpty()) {
 		which = subparsers;
 	}
 	
 	double n = (double) which.size();
 	int i = (int) (n * Math.random());
-	Parser p = which.elementAt(i);
+	Parser p = which.get(i);
 	return p.randomExpansion(maxDepth, depth++);
 }
 /*

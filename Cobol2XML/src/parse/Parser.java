@@ -58,7 +58,7 @@ public Parser (String name) {
  * @param   ParserVisitor   the visitor to accept
  */
 public void accept(ParserVisitor pv) {
-	accept(pv, new Vector<Assembly>());
+	accept(pv, new ArrayList<Assembly>());
 }
 /**
  * Accepts a "visitor" along with a collection of previously
@@ -69,18 +69,21 @@ public void accept(ParserVisitor pv) {
  * @param   Vector   a collection of previously visited 
  *                   parsers.
  */
-public abstract void accept(ParserVisitor pv, Vector<Assembly> visited);
+public abstract void accept(ParserVisitor pv, ArrayList<Assembly> visited);
 /**
  * Adds the elements of one vector to another.
  *
- * @param   v1   the vector to add to
+ * @param   al1   the ArrayList to add to
  *
- * @param   v2   the vector with elements to add
+ * @param   al2   the ArrayList with elements to add
  */
-public static void add(Vector<Assembly> v1, Vector<Assembly> v2) {
-	Enumeration<Assembly> e = v2.elements();
+public static void add(ArrayList<Assembly> al1, ArrayList<Assembly> al2) {
+	// Enumeration<Assembly> e = al2.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<Assembly> e = Collections.enumeration(al2); 
+
 	while (e.hasMoreElements()) {
-		v1.addElement(e.nextElement());
+		al1.add(e.nextElement());
 	}
 }
 /**
@@ -88,12 +91,14 @@ public static void add(Vector<Assembly> v1, Vector<Assembly> v2) {
  *
  * @return   the most-matched assembly in a collection.
  *
- * @param   Vector   the collection to look through
+ * @param   ArrayList   the collection to look through
  *
  */
-public Assembly best(Vector<Assembly> v) {
+public Assembly best(ArrayList<Assembly> v) {
 	Assembly best = null;
-	Enumeration<Assembly> e = v.elements();
+	//Enumeration<Assembly> e = v.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<Assembly> e = Collections.enumeration(v); 
 	while (e.hasMoreElements()) {
 		Assembly a = (Assembly) e.nextElement();
 		if (!a.hasMoreElements()) {
@@ -122,9 +127,9 @@ public Assembly best(Vector<Assembly> v) {
  */
 public Assembly bestMatch(Assembly a) {
 	//System.out.println("bestMatch()");
-	Vector<Assembly> in = new Vector<Assembly>();
-	in.addElement(a);
-	Vector<Assembly> out = matchAndAssemble(in);
+	ArrayList<Assembly> in = new ArrayList<Assembly>();
+	in.add(a);
+	ArrayList<Assembly> out = matchAndAssemble(in);
 	return best(out);
 }
 /**
@@ -153,12 +158,14 @@ public Assembly completeMatch(Assembly a) {
  * @return   a copy of the input vector, cloning each 
  *           element of the vector
  */
-public static Vector<Assembly> elementClone(Vector<Assembly> v) {
-	Vector<Assembly> copy = new Vector<Assembly>();
-	Enumeration<?> e = v.elements();
+public static ArrayList<Assembly> elementClone(ArrayList<Assembly> v) {
+	ArrayList<Assembly> copy = new ArrayList<Assembly>();
+	//Enumeration<?> e = v.elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<Assembly> e = Collections.enumeration(v); 
 	while (e.hasMoreElements()) {
 		Assembly a = (Assembly) e.nextElement();
-		copy.addElement((Assembly) a.clone());
+		copy.add((Assembly) a.clone());
 	}
 	return copy;
 }
@@ -192,7 +199,7 @@ public String getName() {
  * @param   Vector   a vector of assemblies to match against
  *
  */
-public abstract Vector<Assembly> match(Vector<Assembly> in);
+public abstract ArrayList<Assembly> match(ArrayList<Assembly> in);
 /**
  * Match this parser against an input state, and then
  * apply this parser's assembler against the resulting
@@ -204,10 +211,13 @@ public abstract Vector<Assembly> match(Vector<Assembly> in);
  * @param   Vector   a vector of assemblies to match against
  *
  */
-public Vector<Assembly> matchAndAssemble(Vector<Assembly> in) {
-	Vector<Assembly> out = match(in);
+public ArrayList<Assembly> matchAndAssemble(ArrayList<Assembly> in) {
+	ArrayList<Assembly> out = match(in);
 	if (assembler != null) {
-		Enumeration<Assembly> e = out.elements();
+		//Enumeration<Assembly> e = out.elements();
+		// Creating object of type Enumeration<Parser> 
+	    Enumeration<Assembly> e = Collections.enumeration(out); 
+
 		while (e.hasMoreElements()) {
 			assembler.workOn((Assembly) e.nextElement());
 		}
@@ -219,7 +229,7 @@ public Vector<Assembly> matchAndAssemble(Vector<Assembly> in) {
  * concatenation of the returned collection will be a
  * language element.
  */
-protected abstract Vector<?> randomExpansion(
+protected abstract ArrayList<?> randomExpansion(
 	int maxDepth, int depth);
 /**
  * Return a random element of this parser's language.
@@ -228,7 +238,9 @@ protected abstract Vector<?> randomExpansion(
  */
 public String randomInput(int maxDepth, String separator) {
 	StringBuffer buf = new StringBuffer();
-	Enumeration<?> e = randomExpansion(maxDepth, 0).elements();
+	//Enumeration<?> e = randomExpansion(maxDepth, 0).elements();
+	// Creating object of type Enumeration<Parser> 
+    Enumeration<?> e = Collections.enumeration(randomExpansion(maxDepth, 0));
 	boolean first = true;
 	while (e.hasMoreElements()) {
 		if (!first) {
@@ -260,7 +272,7 @@ public Parser setAssembler(Assembler assembler) {
  *                    infinite recursion
  */
 public String toString() {
-	return toString(new Vector<Parser>());
+	return toString(new ArrayList<Parser>());
 }
 /**
  * Returns a textual description of this parser.
@@ -276,7 +288,7 @@ public String toString() {
  * @return   a textual version of this parser,
  *           avoiding recursion
  */
-protected String toString(Vector<Parser> visited) {
+protected String toString(ArrayList<Parser> visited) {
 	if (name != null) {
 		return name;
 	}	
@@ -284,12 +296,12 @@ protected String toString(Vector<Parser> visited) {
 		return "...";
 	}
 	else {
-		visited.addElement(this);
+		visited.add(this);
 		return unvisitedString(visited);
 	}
 }
 /*
  * Returns a textual description of this string.
  */
-protected abstract String unvisitedString(Vector<Parser> visited);
+protected abstract String unvisitedString(ArrayList<Parser> visited);
 }
