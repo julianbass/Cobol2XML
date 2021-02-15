@@ -67,7 +67,7 @@ public ArrayList<String> randomExpansion(int maxDepth, int depth) {
  *
  * @see Parser#toString()
  */
-public String unvisitedString(Vector<Parser> visited) {
+public String unvisitedString(ArrayList<Parser> visited) {
 	return "QuotedString";
 }
 }

@@ -62,7 +62,7 @@ protected boolean qualifies(Object o) {
  *
  * @see Parser#toString()
  */
-public String unvisitedString(Vector<Parser> visited) {
+public String unvisitedString(ArrayList<Parser> visited) {
 	return literal.toString();
 }
 }
