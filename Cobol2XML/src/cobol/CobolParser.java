@@ -21,12 +21,10 @@
 package cobol;
 
 import parse.Alternation;
-import parse.Repetition;
 import parse.Empty;
 import parse.Parser;
 import parse.Sequence;
 import parse.tokens.CaselessLiteral;
-import parse.tokens.Literal;
 import parse.tokens.Num;
 import parse.tokens.Symbol;
 import parse.tokens.Tokenizer;
