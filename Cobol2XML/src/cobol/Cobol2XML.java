@@ -21,10 +21,10 @@
 
 package cobol;
 
-import XMLWriter.*;
 import java.io.*;
 import parse.*;
 import parse.tokens.*;
+import xmlwriter.*;
 
 public class Cobol2XML {
 	/**
