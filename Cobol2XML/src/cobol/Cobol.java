@@ -58,7 +58,7 @@ public class Cobol implements PubliclyCloneable {
 	 * @return  <code>true</code> if the objects are equal and
 	 *          <code>false</code> otherwise.
 	 */
-	public static boolean equal(Object o1, Object o2) {
+	public static boolean ifCobolObjEqual(Object o1, Object o2) {
 		if (o1 == null || o2 == null) {
 			return o1 == null && o2 == null;
 		}
@@ -75,6 +75,7 @@ public class Cobol implements PubliclyCloneable {
 	 * @return  <code>true</code> if the objects are equal and
 	 *          <code>false</code> otherwise.
 	 */
+	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Cobol)) {
 			return false;
@@ -82,17 +83,23 @@ public class Cobol implements PubliclyCloneable {
 		Cobol c = (Cobol) o;
 		
 		
-		if (!equal(program_id, c.program_id)) {
+		if (!ifCobolObjEqual(program_id, c.program_id)) {
 			return false;
 		}
 		
-		if (!equal(sectionName, c.sectionName)) {
+		if (!ifCobolObjEqual(sectionName, c.sectionName)) {
 			return false;
 		}
 		
 
 		return true;
 	}
+	
+	 @Override
+	  public int hashCode() {
+	    return super.hashCode();
+	  }
+
 
 	/**
 	 * Return line of commented text from the COBOL program.

@@ -81,6 +81,7 @@ public class Cobol2XML {
 			
 		}
 		xmlp.writeFile(args[1]);
+		is.close();
 		r.close();
 	}
 
