@@ -29,7 +29,7 @@ public abstract class ParserTester {
 /**
  * Constructs a tester for the given parser.
  */
-public ParserTester(Parser p) {
+protected ParserTester(Parser p) {
 	this.p = p;
 }
 /*
@@ -67,8 +67,8 @@ protected boolean canGenerateProblem(int depth) {
  */
 public static ArrayList<Assembly> completeMatches(ArrayList<?> in) {
 	ArrayList<Assembly> out = new ArrayList<Assembly>();
-	//Enumeration<?> e = in.elements();
 	// Creating object of type Enumeration<Parser> 
+	// Enumeration<?> e = in.elements()
     Enumeration<?> e = Collections.enumeration(in);
 	while (e.hasMoreElements()) {
 		Assembly a = (Assembly) e.nextElement();

@@ -101,8 +101,8 @@ public Parser getSubparser() {
  */
 public ArrayList<Assembly> match(ArrayList<Assembly> in) {
 	if (preAssembler != null) {
-		//Enumeration<Assembly> e = in.elements();
 		// Creating object of type Enumeration<Parser> 
+		// Enumeration<Assembly> e = in.elements()
 	    Enumeration<Assembly> e = Collections.enumeration(in);
 		while (e.hasMoreElements()) {
 			preAssembler.workOn((Assembly) e.nextElement());
@@ -129,8 +129,8 @@ protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
 	int n = (int) (EXPWIDTH * Math.random());
 	for (int j = 0; j < n; j++) {
 		ArrayList<?> w = subparser.randomExpansion(maxDepth, depth++);
-		// Enumeration<?> e = w.elements();
 		// Creating object of type Enumeration<Parser> 
+		// Enumeration<?> e = w.elements()
 	    Enumeration<?> e = Collections.enumeration(w);
 		while (e.hasMoreElements()) {
 			v.add((Assembly) e.nextElement());
