@@ -88,8 +88,13 @@ public class Cobol2XML {
 		    e.printStackTrace();
 		  } finally {
 			xmlp.writeFile(args[1]);
-			is.close();
-			r.close();
+			if(is != null) {
+				is.close(); 
+			}
+			if(r != null) {
+				r.close(); 
+			}
+			
 		  }
 	}
 }
