@@ -38,7 +38,7 @@ public abstract class Parser {
 /**
  * Constructs a nameless parser.
  */
-public Parser() {
+	protected Parser() {
 }
 /**
  * Constructs a parser with the given name.
@@ -47,9 +47,9 @@ public Parser() {
  *                   that are deep composites, a simple name
  *                   identifying its purpose is useful.
  */
-public Parser (String name) {
-	this.name = name;
-}
+	protected Parser (String name) {
+		this.name = name;
+	}
 /**
  * Accepts a "visitor" which will perform some operation on
  * a parser structure. The book, "Design Patterns", explains
