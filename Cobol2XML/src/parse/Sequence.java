@@ -94,8 +94,8 @@ public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
  */
 public ArrayList<Assembly> match(ArrayList<Assembly> in) {
 	ArrayList<Assembly> out = in;
-	//Enumeration<Parser> e = subparsers.elements();
 	// Creating object of type Enumeration<Parser> 
+	// Enumeration<Parser> e = subparsers.elements()
     Enumeration<Parser> e = Collections.enumeration(subparsers); 
 
 	while (e.hasMoreElements()) {
@@ -113,15 +113,15 @@ public ArrayList<Assembly> match(ArrayList<Assembly> in) {
  */
 protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
 	ArrayList<Assembly> v = new ArrayList<Assembly>();
-	//Enumeration<Parser> e = subparsers.elements();
 	// Creating object of type Enumeration<Parser> 
+	// Enumeration<Parser> e = subparsers.elements()
     Enumeration<Parser> e = Collections.enumeration(subparsers); 
 
 	while (e.hasMoreElements()) {
 		Parser p = (Parser) e.nextElement();
 		ArrayList<?> w = p.randomExpansion(maxDepth, depth++);
-		// Enumeration<?> f = w.elements();
-		// Creating object of type Enumeration<Parser> 
+		// Creating object of type Enumeration<Parser>
+		// Enumeration<?> f = w.elements()
 	    Enumeration<?> f = Collections.enumeration(w); 
 		while (f.hasMoreElements()) {
 			v.add((Assembly) f.nextElement());
