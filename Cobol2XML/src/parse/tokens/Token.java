@@ -120,6 +120,7 @@ public Token (TokenType ttype, String sval, double nval) {
  * @return   true, if the supplied object is of the same type 
  *           and value
  */
+@Override
 public boolean equals(Object o) {
 	if (!(o instanceof Token))
 		return false;
