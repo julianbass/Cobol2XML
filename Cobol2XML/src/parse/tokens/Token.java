@@ -137,6 +137,12 @@ public boolean equals(Object o) {
 	}
 	return sval.equals(t.sval);
 }
+
+@Override
+public int hashCode() {
+  return super.hashCode();
+}
+
 /**
  * Returns true if the supplied object is an equivalent token,
  * given mellowness about case in strings and characters.
