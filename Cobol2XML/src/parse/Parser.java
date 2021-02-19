@@ -78,7 +78,7 @@ public abstract void accept(ParserVisitor pv, ArrayList<Assembly> visited);
  * @param   al2   the ArrayList with elements to add
  */
 public static void add(ArrayList<Assembly> al1, ArrayList<Assembly> al2) {
-	// Enumeration<Assembly> e = al2.elements();
+	// Enumeration<Assembly> e = al2.elements()
 	// Creating object of type Enumeration<Parser> 
     Enumeration<Assembly> e = Collections.enumeration(al2); 
 
@@ -96,7 +96,7 @@ public static void add(ArrayList<Assembly> al1, ArrayList<Assembly> al2) {
  */
 public Assembly best(ArrayList<Assembly> v) {
 	Assembly best = null;
-	//Enumeration<Assembly> e = v.elements();
+	// Enumeration<Assembly> e = v.elements()
 	// Creating object of type Enumeration<Parser> 
     Enumeration<Assembly> e = Collections.enumeration(v); 
 	while (e.hasMoreElements()) {
@@ -126,7 +126,6 @@ public Assembly best(ArrayList<Assembly> v) {
  *
  */
 public Assembly bestMatch(Assembly a) {
-	//System.out.println("bestMatch()");
 	ArrayList<Assembly> in = new ArrayList<Assembly>();
 	in.add(a);
 	ArrayList<Assembly> out = matchAndAssemble(in);
@@ -214,7 +213,7 @@ public abstract ArrayList<Assembly> match(ArrayList<Assembly> in);
 public ArrayList<Assembly> matchAndAssemble(ArrayList<Assembly> in) {
 	ArrayList<Assembly> out = match(in);
 	if (assembler != null) {
-		//Enumeration<Assembly> e = out.elements();
+		//Enumeration<Assembly> e = out.elements()
 		// Creating object of type Enumeration<Parser> 
 	    Enumeration<Assembly> e = Collections.enumeration(out); 
 
@@ -238,7 +237,7 @@ protected abstract ArrayList<?> randomExpansion(
  */
 public String randomInput(int maxDepth, String separator) {
 	StringBuffer buf = new StringBuffer();
-	//Enumeration<?> e = randomExpansion(maxDepth, 0).elements();
+	//Enumeration<?> e = randomExpansion(maxDepth, 0).elements()
 	// Creating object of type Enumeration<Parser> 
     Enumeration<?> e = Collections.enumeration(randomExpansion(maxDepth, 0));
 	boolean first = true;
