@@ -69,6 +69,11 @@ public static String stringFromFileNamed(String fileName)
     		in.close(); 
 		}
 	}	
-	return out.toString();
-}
+	if (out != null) {
+		return out.toString(); 
+		}
+	else {
+		return null;
+		}
+	}
 }
