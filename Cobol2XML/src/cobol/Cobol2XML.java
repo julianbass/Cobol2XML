@@ -61,29 +61,33 @@ public class Cobol2XML {
 		BufferedReader r = null;
 		try {
 			is = new FileInputStream(args[0]);
-			r = new BufferedReader(new InputStreamReader(is));
-	
-			Tokenizer t = CobolParser.tokenizer();
-			Parser p = CobolParser.start();
-			
-			// Look through source code file line by line
-			while (true) {
-				// throws IOException
-				String s = r.readLine();
-				if (s == null) {
-					break;
-				}
-				t.setString(s);
-				Assembly in = new TokenAssembly(t);
-				Assembly out = p.bestMatch(in);
-				Cobol c = new Cobol();
-				c = (Cobol) out.getTarget();
+			try {
+				r = new BufferedReader(new InputStreamReader(is));
+
+				Tokenizer t = CobolParser.tokenizer();
+				Parser p = CobolParser.start();
 				
-				if(c != null)
-					xmlp.addElements(c); 
+				// Look through source code file line by line
+				while (true) {
+					// throws IOException
+					String s = r.readLine();
+					if (s == null) {
+						break;
+					}
+					t.setString(s);
+					Assembly in = new TokenAssembly(t);
+					Assembly out = p.bestMatch(in);
+					Cobol c = new Cobol();
+					c = (Cobol) out.getTarget();
+					
+					if(c != null)
+						xmlp.addElements(c); 
+					
 				
-			
-		    	}// while
+					}// while
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		  } catch (Exception e) {
 		    e.printStackTrace();
 		  } finally {
