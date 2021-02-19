@@ -159,8 +159,8 @@ public Assembly completeMatch(Assembly a) {
  */
 public static ArrayList<Assembly> elementClone(ArrayList<Assembly> v) {
 	ArrayList<Assembly> copy = new ArrayList<Assembly>();
-	//Enumeration<?> e = v.elements();
-	// Creating object of type Enumeration<Parser> 
+	// Creating object of type Enumeration<Parser>
+	// Enumeration<?> e = v.elements()
     Enumeration<Assembly> e = Collections.enumeration(v); 
 	while (e.hasMoreElements()) {
 		Assembly a = (Assembly) e.nextElement();

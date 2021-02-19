@@ -94,7 +94,7 @@ public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
  */
 public ArrayList<Assembly> match(ArrayList<Assembly> in) {
 	ArrayList<Assembly> out = new ArrayList<Assembly>();
-	// Enumeration<Parser> e = subparsers.elements();
+	// Enumeration<Parser> e = subparsers.elements()
 	// Creating object of type Enumeration<Parser> 
     Enumeration<Parser> e = Collections.enumeration(subparsers); 
 
@@ -126,7 +126,7 @@ protected ArrayList<?> randomSettle(int maxDepth, int depth) {
 	// which alternatives are terminals?
 
 	ArrayList<Parser> terms = new ArrayList<Parser>();
-	//Enumeration<Parser> e = subparsers.elements();
+	//Enumeration<Parser> e = subparsers.elements()
 	// Creating object of type Enumeration<Parser> 
     Enumeration<Parser> e = Collections.enumeration(subparsers); 
 
