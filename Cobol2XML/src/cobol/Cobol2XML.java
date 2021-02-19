@@ -82,23 +82,21 @@ public class Cobol2XML {
 					
 					if(c != null)
 						xmlp.addElements(c); 
-					
-				
 					}// while
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					if(r != null) {
+						r.close(); 
+					}
+				}
 		  } catch (Exception e) {
 		    e.printStackTrace();
 		  } finally {
 			xmlp.writeFile(args[1]);
 			if(is != null) {
 				is.close(); 
-			}
-			if(r != null) {
-				r.close(); 
-			}
-			
+			}		
 		  }
 	}
 }
