@@ -41,10 +41,12 @@ public static String stringFromFileNamed(String fileName)
 	final int BUFLEN = 1024;
 	char buf[] = new char[BUFLEN];
 	
-	FileReader in = new FileReader(fileName);
-	StringWriter out = new StringWriter();
+	FileReader in = null;
+	StringWriter out = null;
 	
 	try {
+		in = new FileReader(fileName);
+		out = new StringWriter();
 		while (true) {
 			int len = in.read(buf, 0, BUFLEN);
 			if (len == -1) {

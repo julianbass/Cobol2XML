@@ -84,14 +84,14 @@ public class Cobol2XML {
 						xmlp.addElements(c); 
 					}// while
 				} catch (Exception e) {
-					e.printStackTrace();
+					e.printStackTrace(); // BufferedReader
 				} finally {
 					if(r != null) {
 						r.close(); 
 					}
 				}
 		  } catch (Exception e) {
-		    e.printStackTrace();
+		    e.printStackTrace(); // FileInputStream
 		  } finally {
 			xmlp.writeFile(args[1]);
 			if(is != null) {
