@@ -23,8 +23,6 @@ package utensil;
 
 import java.awt.*;
 import java.awt.event.*;
-//import com.sun.java.swing.*;
-//import com.sun.java.swing.border.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -107,6 +105,7 @@ public static JFrame launch(Component c, String title) {
  */
 public static void listen(Frame f) {
 	f.addWindowListener(new WindowAdapter() {
+		@Override
 		public void windowClosing(WindowEvent e) {
 			System.exit(0);
 		};

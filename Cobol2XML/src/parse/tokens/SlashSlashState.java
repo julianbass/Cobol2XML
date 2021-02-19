@@ -35,6 +35,7 @@ public Token nextToken(
 		
 	int c;
 	while ((c = r.read()) != '\n' && c != '\r' && c >= 0) {
+		// Empty to consume newline or carriage returns
 	}
 	return t.nextToken();
 }

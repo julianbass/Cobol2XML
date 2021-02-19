@@ -76,8 +76,8 @@ public Terminal discard() {
  */
 public ArrayList<Assembly> match(ArrayList<Assembly> in) {
 	ArrayList<Assembly> out = new ArrayList<Assembly>();
-	//Enumeration<Assembly> e = in.elements();
 	// Creating object of type Enumeration<Parser> 
+	// Enumeration<Assembly> e = in.elements()
     Enumeration<Assembly> e = Collections.enumeration(in); 
 
 	while (e.hasMoreElements()) {

@@ -29,7 +29,7 @@ public class Tokenizer {
 	protected PushbackReader reader;
 
 	/*
-	 * The number of characters that might be in a symbol;
+	 * The number of characters that might be in a symbol
 	 */
 	protected static final int DEFAULT_SYMBOL_MAX = 4;
 	
