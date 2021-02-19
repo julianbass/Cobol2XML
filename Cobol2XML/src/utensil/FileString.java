@@ -46,20 +46,25 @@ public static String stringFromFileNamed(String fileName)
 	
 	try {
 		in = new FileReader(fileName);
-		out = new StringWriter();
-		while (true) {
-			int len = in.read(buf, 0, BUFLEN);
-			if (len == -1) {
-				break;
-			}	
-			out.write(buf, 0, len);
-		}	
+		try {
+			out = new StringWriter();
+			while (true) {
+				int len = in.read(buf, 0, BUFLEN);
+				if (len == -1) {
+					break;
+				}	
+				out.write(buf, 0, len);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(out != null) {
+	    		out.close(); 
+			}
+		}
 	} catch (Exception e) {
 		e.printStackTrace();
-    } finally {
-    	if(out != null) {
-    		out.close(); 
-		}
+    } finally { 	
     	if(in != null) {
     		in.close(); 
 		}
