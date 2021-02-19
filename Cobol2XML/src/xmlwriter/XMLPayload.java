@@ -23,6 +23,7 @@
 import cobol.*;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.StringWriter;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
@@ -35,11 +36,16 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import logger.*;
+
 
 
 public class XMLPayload {
 	Document doc;
 	Element rootElement;
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
 	public XMLPayload() {
 		try {
@@ -212,14 +218,22 @@ public class XMLPayload {
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(doc);
         
-        StreamResult result =
-                new StreamResult(new File(filename));
+        StreamResult result = new StreamResult(new File(filename));
         transformer.transform(source, result);
         
         // Output to console for testing
         StreamResult consoleResult = new StreamResult(System.out);
         transformer.transform(source, consoleResult);
         
+        //A character stream that collects its output in a string buffer, 
+        //which can then be used to construct a string.
+        StringWriter writer = new StringWriter();
+        
+        //transform document to string 
+        transformer.transform(source, new StreamResult(writer));
+        
+        String xmlString = writer.getBuffer().toString();
+        LOGGER.info(xmlString);
 		 } catch (Exception e) {
 	         e.printStackTrace();
 	     }

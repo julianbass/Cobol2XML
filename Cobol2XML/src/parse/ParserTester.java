@@ -22,8 +22,11 @@
 package parse;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public abstract class ParserTester {
+	// use the classname for the logger, this way you can refactor
+    private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	protected Parser p;
 	protected boolean logTestStrings = true;
 /**
@@ -37,6 +40,7 @@ protected ParserTester(Parser p) {
  * from the given (random) string.
  */
 protected abstract Assembly assembly(String s);
+
 /*
  * Generate a random language element, and return true if
  * the parser cannot unambiguously parse it.
@@ -91,7 +95,8 @@ protected utensil.PubliclyCloneable freshTarget() {
  * other than System.out.
  */
 protected void logDepthChange(int depth) {
-	System.out.println("Testing depth " + depth + "...");
+	//System.out.println("Testing depth " + depth + "...")
+	LOGGER.info("Testing depth " + depth + "...");
 }
 /*
  * This method is broken out to allow subclasses to create
@@ -99,7 +104,8 @@ protected void logDepthChange(int depth) {
  * other than System.out.
  */
 protected void logPassed() {
-	System.out.println("No problems found.");
+	//System.out.println("No problems found.")
+	LOGGER.info("No problems found.");
 }
 /*
  * This method is broken out to allow subclasses to create
@@ -107,16 +113,22 @@ protected void logPassed() {
  * other than System.out.
  */
 protected void logProblemFound(String s, int matchSize) {
-	System.out.println("Problem found for string:");
-	System.out.println(s);
+	// System.out.println("Problem found for string:")
+	// System.out.println(s)
+	LOGGER.info("Problem found for string:");
+	LOGGER.info(s);
 	if (matchSize == 0) {
-		System.out.println(
-			"Parser cannot match this apparently " +
-			"valid string.");
+		//System.out.println(
+		//	"Parser cannot match this apparently " +
+		//	"valid string.")
+		LOGGER.info("Parser cannot match this apparently " +
+				"valid string.");
 	} else {
-		System.out.println(
-			"The parser found " + matchSize + 
-			" ways to parse this string.");
+		//System.out.println(
+		//	"The parser found " + matchSize + 
+		//	" ways to parse this string.")
+		LOGGER.info("The parser found " + matchSize +
+				" ways to parse this string.");
 	}
 }
 /*
@@ -126,7 +138,8 @@ protected void logProblemFound(String s, int matchSize) {
  */
 protected void logTestString(String s) {
 	if (logTestStrings) {
-		System.out.println("    Testing string " + s);
+		//System.out.println("    Testing string " + s)
+		LOGGER.info("    Testing string " + s);
 	}
 }
 /*

@@ -1,8 +1,15 @@
-Feb 19, 2021 6:44:12 PM logger.UseLogger doSomeThingAndLog
-SEVERE: Info Log
-Feb 19, 2021 6:44:12 PM logger.UseLogger doSomeThingAndLog
-SEVERE: Info Log
-Feb 19, 2021 6:44:12 PM logger.UseLogger doSomeThingAndLog
-WARNING: Info Log
-Feb 19, 2021 6:44:12 PM logger.UseLogger doSomeThingAndLog
-INFO: Info Log
+Feb 19, 2021 7:37:59 PM cobol.Cobol2XML main
+INFO: Cobol2XML V0.1.0
+Feb 19, 2021 7:37:59 PM xmlwriter.XMLPayload writeFile
+INFO: <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cobol>
+<division>identification</division>
+<Program-ID>base</Program-ID>
+<day-date-written>7</day-date-written>
+<month-date-written>mar</month-date-written>
+<year-date-written>1995</year-date-written>
+<division>data</division>
+<section>working-storage</section>
+<division>procedure</division>
+</cobol>
+

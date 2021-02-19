@@ -22,7 +22,8 @@
 package cobol;
 
 import java.io.*;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import logger.*;
 import parse.*;
 import parse.tokens.*;
@@ -45,10 +46,10 @@ public class Cobol2XML {
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
-		System.out.println("Cobol2XML V0.1.0");
-		XMLPayload xmlp = new XMLPayload();
-		
+	// use the classname for the logger, this way you can refactor
+    private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    public static void main(String[] args) throws Exception {
 		/* The first command line parameter is used to get the cobol source file namee
 		 * In case you are not sure if you are pointing toward the right file, print out the filename
 		 * like this...
@@ -59,6 +60,16 @@ public class Cobol2XML {
 		 * InputStream is = new FileInputStream("C:\\Users\\sgs442\\eclipse-workspace\\CobolParser1\\base.cbl")
 		 */
 
+        try {
+            MyLogger.setup();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Problems with creating the log files");
+        }
+        LOGGER.setLevel(Level.INFO);
+        LOGGER.info("Cobol2XML V0.1.0");
+        
+        XMLPayload xmlp = new XMLPayload();
 		InputStream is = null;
 		BufferedReader r = null;
 		try {
@@ -100,14 +111,6 @@ public class Cobol2XML {
 				is.close(); 
 			}		
 		  }
-		
-		UseLogger tester = new UseLogger();
-        try {
-            MyLogger.setup();
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Problems with creating the log files");
-        }
-        tester.doSomeThingAndLog();
+
 	}
 }
