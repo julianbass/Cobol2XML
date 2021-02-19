@@ -23,6 +23,8 @@
 import cobol.*;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
@@ -43,6 +45,8 @@ public class XMLPayload {
 		try {
 		DocumentBuilderFactory dbFactory =
 		         DocumentBuilderFactory.newInstance();
+		dbFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, ""); // XML parsers should not be vulnerable to XXE attacks
+		dbFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, ""); // XML parsers should not be vulnerable to XXE attacks
 		DocumentBuilder dBuilder = 
 		            dbFactory.newDocumentBuilder();
 		doc = dBuilder.newDocument();
@@ -200,10 +204,10 @@ public class XMLPayload {
 		try {
 		// write the content into xml file
 		// insert debug printf "WriteFile Filename: " + filename
-        TransformerFactory transformerFactory =
-        TransformerFactory.newInstance();
-        Transformer transformer =
-        transformerFactory.newTransformer();
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        transformerFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, ""); // XML parsers should not be vulnerable to XXE attacks
+        transformerFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, ""); // XML parsers should not be vulnerable to XXE attacks
+        Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(doc);
