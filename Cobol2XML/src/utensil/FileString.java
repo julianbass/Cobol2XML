@@ -52,10 +52,15 @@ public static String stringFromFileNamed(String fileName)
 			}	
 			out.write(buf, 0, len);
 		}	
-	}
-	finally {
-		out.close();
-		in.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+    } finally {
+    	if(out != null) {
+    		out.close(); 
+		}
+    	if(in != null) {
+    		in.close(); 
+		}
 	}	
 	return out.toString();
 }
