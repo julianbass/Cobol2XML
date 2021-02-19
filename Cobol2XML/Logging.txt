@@ -1,0 +1,8 @@
+Feb 19, 2021 6:44:12 PM logger.UseLogger doSomeThingAndLog
+SEVERE: Info Log
+Feb 19, 2021 6:44:12 PM logger.UseLogger doSomeThingAndLog
+SEVERE: Info Log
+Feb 19, 2021 6:44:12 PM logger.UseLogger doSomeThingAndLog
+WARNING: Info Log
+Feb 19, 2021 6:44:12 PM logger.UseLogger doSomeThingAndLog
+INFO: Info Log

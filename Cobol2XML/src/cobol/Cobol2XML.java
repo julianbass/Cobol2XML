@@ -22,6 +22,8 @@
 package cobol;
 
 import java.io.*;
+
+import logger.*;
 import parse.*;
 import parse.tokens.*;
 import xmlwriter.*;
@@ -98,5 +100,14 @@ public class Cobol2XML {
 				is.close(); 
 			}		
 		  }
+		
+		UseLogger tester = new UseLogger();
+        try {
+            MyLogger.setup();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Problems with creating the log files");
+        }
+        tester.doSomeThingAndLog();
 	}
 }
