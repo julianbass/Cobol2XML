@@ -237,7 +237,7 @@ protected abstract ArrayList<?> randomExpansion(
  */
 public String randomInput(int maxDepth, String separator) {
 	StringBuffer buf = new StringBuffer();
-	//Enumeration<?> e = randomExpansion(maxDepth, 0).elements()
+	// Enumeration<?> e = randomExpansion(maxDepth, 0).elements()
 	// Creating object of type Enumeration<Parser> 
     Enumeration<?> e = Collections.enumeration(randomExpansion(maxDepth, 0));
 	boolean first = true;

@@ -22,9 +22,10 @@
 package parse;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class Sequence extends CollectionParser {
-
+	 private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 /**
  * Constructs a nameless sequence.
  */
@@ -112,6 +113,7 @@ public ArrayList<Assembly> match(ArrayList<Assembly> in) {
  * sequence and return a collection of all these expansions.
  */
 protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
+	LOGGER.info("random expansion");
 	ArrayList<Assembly> v = new ArrayList<Assembly>();
 	// Creating object of type Enumeration<Parser> 
 	// Enumeration<Parser> e = subparsers.elements()
@@ -119,13 +121,17 @@ protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
 
 	while (e.hasMoreElements()) {
 		Parser p = (Parser) e.nextElement();
-		ArrayList<?> w = p.randomExpansion(maxDepth, depth++);
+		ArrayList<Parser> w = (ArrayList<Parser>) p.randomExpansion(maxDepth, depth++);
 		// Creating object of type Enumeration<Parser>
 		// Enumeration<?> f = w.elements()
-	    Enumeration<?> f = Collections.enumeration(w); 
+	    Enumeration<Parser> f = Collections.enumeration(w); 
 		while (f.hasMoreElements()) {
-			v.add((Assembly) f.nextElement());
+			Object ass = f.nextElement();
+			LOGGER.info("more elements" + f.hasMoreElements());
+			LOGGER.info("next element" + ass);
+			v.add((Assembly) ass);
 		}
+		
 	}
 	return v;
 }
@@ -139,6 +145,6 @@ protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
  * sequence of these expressions.
  */
 protected String toStringSeparator() {
-	return "";
+	return " ";
 }
 }

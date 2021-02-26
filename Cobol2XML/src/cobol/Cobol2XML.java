@@ -49,6 +49,8 @@ public class Cobol2XML {
 	// use the classname for the logger, this way you can refactor
     private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    
+    
     public static void main(String[] args) throws Exception {
 		/* The first command line parameter is used to get the cobol source file namee
 		 * In case you are not sure if you are pointing toward the right file, print out the filename
@@ -68,7 +70,7 @@ public class Cobol2XML {
         }
         LOGGER.setLevel(Level.INFO);
         LOGGER.info("Cobol2XML V0.1.0");
-        
+
         XMLPayload xmlp = new XMLPayload();
 		InputStream is = null;
 		BufferedReader r = null;
@@ -102,7 +104,7 @@ public class Cobol2XML {
 					if(r != null) {
 						r.close(); 
 					}
-				}
+				} // finally BufferedReader
 		  } catch (Exception e) {
 		    e.printStackTrace(); // FileInputStream
 		  } finally {
@@ -110,7 +112,9 @@ public class Cobol2XML {
 			if(is != null) {
 				is.close(); 
 			}		
-		  }
+		  } // finally FilelInputStream
 
-	}
+	} // main()
 }
+
+
