@@ -42,7 +42,7 @@ public class Cobol2XML {
 
 	/**
 	 * @param args command line arguments
-	 * @throws Exception
+	 * @throws Exception e
 	 */
     public static void main(String[] args) throws Exception {
 		/* The first command line parameter is used to get the cobol source file namee
@@ -64,48 +64,54 @@ public class Cobol2XML {
         LOGGER.setLevel(Level.INFO);
         LOGGER.info("Cobol2XML V0.1.0");
 
+		// Creates an object which stores each line of the cobol program as an object representing a xml tag
         XMLPayload xmlp = new XMLPayload();
-		InputStream is = null;
+		// Reads the input file as a series of bytes
+		// Used to read each line in the input file's byte stream
+		// Try block because the next method call may throw FileNotFoundException
 		BufferedReader r = null;
-		try {
-			is = new FileInputStream(args[0]);
+		try (InputStream is = new FileInputStream(args[0])) {
+			// Initialise with object that can read bytes from input file
 			try {
+				// Uses the InputStreamReader to convert the bytes into characters, then passes this into the BufferedReader that can read lines
 				r = new BufferedReader(new InputStreamReader(is));
-
+				// Gets a new Tokenizer object that uses spaces as a delimiter for the cobol words
 				Tokenizer t = CobolParser.tokenizer();
+				// Gets a new Alternation object that builds a cobol object from parsed word data
 				Parser p = CobolParser.start();
-				
 				// Look through source code file line by line
 				while (true) {
-					// throws IOException
+					// Reads the first/next line of the input file, may throw IOException
 					String s = r.readLine();
+					// Breaks the while loop if the end of the file is reached
 					if (s == null) {
 						break;
 					}
+					// Inputs the current line into the tokenizer, which will split it into cobol words
 					t.setString(s);
+					// Creates a TokenAssembly containing the tokens returned from the Tokenizer object
 					Assembly in = new TokenAssembly(t);
+					// Gets an Assembly containing as many matched elements consumed by the cobol parser as possible
 					Assembly out = p.bestMatch(in);
-					Cobol c = new Cobol();
-					c = (Cobol) out.getTarget();
-					
-					if(c != null)
-						xmlp.addElements(c); 
-					}// while
-				} catch (Exception e) {
-					e.printStackTrace(); // BufferedReader
-				} finally {
-					if(r != null) {
-						r.close(); 
-					}
-				} // finally BufferedReader
-		  } catch (Exception e) {
-		    e.printStackTrace(); // FileInputStream
-		  } finally {
+					// Gets a cobol object, containing the cobol data retrieved from this line
+					Cobol c = (Cobol) out.getTarget();
+					// If the cobol object contains data, appends it as a xml element to the payload object
+					if (c != null)
+						xmlp.addElements(c);
+				}// while
+			} catch (Exception e) {
+				e.printStackTrace(); // BufferedReader
+			} finally {
+				if (r != null) {
+					// Closes the BufferedReader to allow the InputStream to be closed by automatic resource management
+					r.close();
+				}
+			} // finally BufferedReader
+		} catch (Exception e) {
+			e.printStackTrace(); // FileInputStream
+		} finally {
 			xmlp.writeFile(args[1]);
-			if(is != null) {
-				is.close(); 
-			}		
-		  } // finally FilelInputStream
+		}
 
 	} // main()
 }
