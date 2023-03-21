@@ -41,7 +41,7 @@ public class Repetition extends Parser {
 /**
  * Constructs a repetition of the given parser. 
  * 
- * @param   parser   the parser to repeat
+ * @param   p   the parser to repeat
  *
  * @return   a repetiton that will match the given 
  *           parser repeatedly in successive matches
@@ -53,9 +53,9 @@ public Repetition (Parser p) {
  * Constructs a repetition of the given parser with the
  * given name.
  * 
- * @param   Parser   the parser to repeat
+ * @param   subparser   the parser to repeat
  *
- * @param   String   a name to be known by
+ * @param   name   a name to be known by
  *
  * @return   a repetiton that will match the given 
  *           parser repeatedly in successive matches
@@ -68,9 +68,9 @@ public Repetition(Parser subparser, String name) {
  * Accept a "visitor" and a collection of previously visited
  * parsers.
  *
- * @param   ParserVisitor   the visitor to accept
+ * @param   pv   the visitor to accept
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  */
 public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitRepetition(this, visited);
@@ -96,7 +96,7 @@ public Parser getSubparser() {
  * @return   a Vector of assemblies that result from 
  *           matching against a beginning set of assemblies
  *
- * @param   ArrayList   a ArrayList of assemblies to match against
+ * @param   in   a ArrayList of assemblies to match against
  *
  */
 public ArrayList<Assembly> match(ArrayList<Assembly> in) {
@@ -142,7 +142,7 @@ protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
  * Sets the object that will work on every assembly before 
  * matching against it.
  *
- * @param   Assembler   the assembler to apply
+ * @param   preAssembler   the assembler to apply
  *
  * @return   Parser   this
  */

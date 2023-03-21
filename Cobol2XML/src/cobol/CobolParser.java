@@ -33,8 +33,7 @@ import parse.tokens.Word;
 public class CobolParser {
 	/**
 	 * Return a parser that will recognize the selected COBOL source code constructs:
-	 * 
-	 * 
+	 * <br>
 	 * This parser creates a <code>COBOL</code> object
 	 * as an assembly's target.
 	 *

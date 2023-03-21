@@ -12,7 +12,7 @@ public class TokenAssembly extends Assembly{
 	 * Constructs a TokenAssembly on a TokenString constructed 
 	 * from the given String.
 	 *
-	 * @param   string   the string to consume
+	 * @param   s   the string to consume
 	 *
 	 * @return   a TokenAssembly that will consume a tokenized 
 	 *           version of the supplied String
@@ -24,11 +24,9 @@ public class TokenAssembly extends Assembly{
 	 * Constructs a TokenAssembly on a TokenString constructed 
 	 * from the given Tokenizer.
 	 *
-	 * @param   Tokenizer   the tokenizer to consume tokens 
+	 * @param   t   the tokenizer to consume tokens
 	 *                      from
 	 *
-	 * @return   a TokenAssembly that will consume a tokenized 
-	 *           version of the supplied Tokenizer
 	 */
 	public TokenAssembly(Tokenizer t) {
 		this(new TokenString(t));
@@ -38,8 +36,6 @@ public class TokenAssembly extends Assembly{
 	 *
 	 * @param   tokenString   the tokenString to consume
 	 *
-	 * @return   a TokenAssembly that will consume the supplied 
-	 *           TokenString
 	 */
 	public TokenAssembly(TokenString tokenString) {
 		this.tokenString = tokenString;

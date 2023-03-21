@@ -59,11 +59,11 @@ public Token nextToken(
 /**
  * Establish the given characters as whitespace to ignore.
  *
- * @param   first   char
+ * @param   from   char
  *
- * @param   second   char
+ * @param   to   char
  *
- * @param   boolean   true, if this state should ignore
+ * @param   b   true, if this state should ignore
  *                    characters in the given range
  */
 public void setWhitespaceChars(int from, int to, boolean b) {

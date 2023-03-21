@@ -115,13 +115,13 @@ public static void listen(Frame f) {
  * Returns a standard text panel, with a scroll pane around 
  * a text area, and with a title border.
  *
- * @param String the panel title
+ * @param title the panel title
  *
- * @param JTextArea the text area to wrap
+ * @param ta the text area to wrap
  *
- * @param Dimension the preferred size for this panel
+ * @param pref the preferred size for this panel
  *
- * @param Dimension the minimum size for this panel
+ * @param min the minimum size for this panel
  *
  * @return a standard text panel, with a scroll pane 
  *         around a text area, and with a title border.

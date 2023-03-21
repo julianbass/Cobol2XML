@@ -24,10 +24,10 @@ public class LimitingLinearCalculator extends LinearCalculator {
 /**
  * Create a LimitingLinearCalculator from known points on two scales.
  *
- * @param double xFrom
- * @param double xTo
- * @param double yFrom
- * @param double yTo
+ * @param xFrom xFrom
+ * @param xTo xTo
+ * @param yFrom yFrom
+ * @param yTo yTo
  */
 public LimitingLinearCalculator(double xFrom, double xTo, double yFrom, double yTo) {
 	super(xFrom, xTo, yFrom, yTo);

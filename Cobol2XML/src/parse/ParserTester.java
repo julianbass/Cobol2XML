@@ -64,7 +64,7 @@ protected boolean canGenerateProblem(int depth) {
  * filtering for assemblies that have been completely
  * matched.
  *
- * @param   Vector   a collection of partially or completely
+ * @param   in   a collection of partially or completely
  *                   matched assemblies
  *
  * @return   a collection of completely matched assemblies
@@ -153,7 +153,7 @@ protected String separator() {
  * Set the boolean which determines if this class displays
  * every test string.
  *
- * @param   boolean   true, if the user wants to see
+ * @param   logTestStrings   true, if the user wants to see
  *                    every test string
  */
 public void setLogTestStrings(boolean logTestStrings) {

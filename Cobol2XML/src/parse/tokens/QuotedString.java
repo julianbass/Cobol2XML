@@ -28,7 +28,7 @@ public class QuotedString extends Terminal {
  * Returns true if an assembly's next element is a quoted 
  * string.
  *
- * @param   object   an element from a assembly
+ * @param   o   an element from a assembly
  *
  * @return   true, if a assembly's next element is a quoted 
  *           string, like "chubby cherubim".
@@ -60,7 +60,7 @@ public ArrayList<String> randomExpansion(int maxDepth, int depth) {
 /**
  * Returns a textual description of this parser.
  *
- * @param   vector   a list of parsers already printed in
+ * @param   visited   a list of parsers already printed in
  *                   this description
  * 
  * @return   string   a textual description of this parser

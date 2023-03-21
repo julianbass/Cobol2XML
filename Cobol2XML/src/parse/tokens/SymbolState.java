@@ -40,7 +40,7 @@ public SymbolState() {
 /**
  * Add a multi-character symbol.
  *
- * @param   String   the symbol to add, such as "=:="
+ * @param   s   the symbol to add, such as "=:="
  */
 public void add(String s) {
 	symbols.add(s);

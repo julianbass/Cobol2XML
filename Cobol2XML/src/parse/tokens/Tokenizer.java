@@ -73,7 +73,7 @@ public Tokenizer() {
 /**
  * Constructs a tokenizer to read from the supplied string.
  *
- * @param   String   the string to read from
+ * @param   s   the string to read from
  */
 public Tokenizer(String s) {
 	this();
@@ -133,7 +133,7 @@ public QuoteState quoteState() {
  *
  * @param   to   the "to" character
  *
- * @param   TokenizerState   the state to enter upon reading a
+ * @param   state   the state to enter upon reading a
  *                           character between "from" and "to"
  */
 public void setCharacterState(
@@ -148,7 +148,7 @@ public void setCharacterState(
 /**
  * Set the reader to read from.
  * 
- * @param   PushbackReader   the reader to read from
+ * @param   r   the reader to read from
  */
 public void setReader(PushbackReader r) {
 	this.reader = r;
@@ -156,7 +156,7 @@ public void setReader(PushbackReader r) {
 /**
  * Set the string to read from.
  * 
- * @param   String   the string to read from
+ * @param   s   the string to read from
  */
 public void setString(String s) {
 	setString(s, DEFAULT_SYMBOL_MAX);
@@ -164,9 +164,9 @@ public void setString(String s) {
 /**
  * Set the string to read from.
  * 
- * @param   String   the string to read from
+ * @param   s   the string to read from
  *
- * @param   int   the maximum length of a symbol, which
+ * @param   symbolMax   the maximum length of a symbol, which
  *                establishes the size of pushback buffer
  *                we need
  */

@@ -27,9 +27,9 @@ public class Empty extends Parser {
  * Accept a "visitor" and a collection of previously visited
  * parsers.
  *
- * @param   ParserVisitor   the visitor to accept
+ * @param   pv   the visitor to accept
  *
- * @param   ArrayList   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  */
 public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitEmpty(this, visited);
@@ -40,7 +40,7 @@ public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
  * 
  * @return   the input set of states
  *
- * @param   Vector   a vector of assemblies to match against
+ * @param   in   a vector of assemblies to match against
  *
  */
 public ArrayList<Assembly> match(ArrayList<Assembly> in) {

@@ -29,28 +29,21 @@ import parse.*;
 import parse.tokens.*;
 import xmlwriter.*;
 
+/**
+ * Recognise constructs in a COBOL source code file.
+ * And then produce a well-formed XML file with the data identified
+ */
 public class Cobol2XML {
-	/**
-	 * Recognise some basic constructs in a COBOL source code file.
-	 * And then produce a well-formed XML file with the data identified
-	 * 
-	 * First command line parameter must be path to cobol source file, such as
-	 * "C:\\Users\\<your user name>\\git\\cobol2xml\\base.cbl"
-	 * 
-	 * Or, when you know exactly where the repository is located and have the file in the right place, simply
-	 * "base.cbl"
-	 * 
-	 * The quotation marks are required
-	 */
-	/**
-	 * @param args
-	 * @throws Exception
-	 */
+
+
 	// use the classname for the logger, this way you can refactor
     private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    
-    
+
+	/**
+	 * @param args command line arguments
+	 * @throws Exception
+	 */
     public static void main(String[] args) throws Exception {
 		/* The first command line parameter is used to get the cobol source file namee
 		 * In case you are not sure if you are pointing toward the right file, print out the filename

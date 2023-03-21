@@ -46,7 +46,7 @@ public abstract class Assembly implements Enumeration<Object>, PubliclyCloneable
 	 * Returns the elements of the assembly that have been 
 	 * consumed, separated by the specified delimiter.
 	 *
-	 * @param   String   the mark to show between consumed
+	 * @param   delimiter   the mark to show between consumed
 	 *                   elements
 	 *
 	 * @return   the elements of the assembly that have been 
@@ -133,7 +133,7 @@ public abstract class Assembly implements Enumeration<Object>, PubliclyCloneable
 	/**
 	 * Pushes an object onto the top of this assembly's stack. 
 	 *
-	 * @param   object   the object to be pushed
+	 * @param   o   the object to be pushed
 	 */
 	public void push(Object o) {
 		stack.push(o);
@@ -142,7 +142,7 @@ public abstract class Assembly implements Enumeration<Object>, PubliclyCloneable
 	 * Returns the elements of the assembly that remain to be 
 	 * consumed, separated by the specified delimiter.
 	 *
-	 * @param   String   the mark to show between unconsumed 
+	 * @param   delimiter   the mark to show between unconsumed
 	 *                   elements
 	 *
 	 * @return   the elements of the assembly that remain to be 

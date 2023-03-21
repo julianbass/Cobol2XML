@@ -28,7 +28,7 @@ public class Program_idAssembler extends Assembler {
  * Pop a string, and set the target Program_ID to this
  * string.
  *
- * @param   Assembly   the assembly to work on
+ * @param   a   the assembly to work on
  */
 public void workOn(Assembly a) {
 	Cobol c = new Cobol();

@@ -32,9 +32,9 @@ public class SymbolNode {
  * Constructs a SymbolNode with the given parent, representing 
  * the given character.
  *
- * @param   SymbolNode   this node's parent
+ * @param   parent   this node's parent
  *
- * @param   char   this node's character
+ * @param   myChar   this node's character
  */
 public SymbolNode(SymbolNode parent, char myChar) {
 	this.parent = parent;

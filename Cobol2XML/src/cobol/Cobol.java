@@ -168,8 +168,6 @@ public class Cobol implements PubliclyCloneable {
 	
 	/**
 	 * Set a line of commented text from the COBOL program.
-	 *
-	 * @return line of commented text from the COBOL program
 	 */
 	public void setCommentLine(String commentLine) {
 		this.commentLine = commentLine;
@@ -180,7 +178,7 @@ public class Cobol implements PubliclyCloneable {
 	/**
 	 * Set the name of this cobol file.
 	 *
-	 * @param   String   the name
+	 * @param   program_idString   the name
 	 */
 	public void setProgram_ID(String program_idString) {
 		this.program_id = program_idString;
@@ -189,16 +187,16 @@ public class Cobol implements PubliclyCloneable {
 	/**
 	 * Set the dayDateWritten of this COBOL program.
 	 *
-	 * @param the dayDateWritten of this COBOL program
+	 * @param dayDateWritten dayDateWritten of this COBOL program
 	 */
 	public void setDayDateWritten(int dayDateWritten) {
 		this.dayDateWritten = dayDateWritten;
 	}
 	
 	/**
-	 * Return the monthWritten of this COBOL program.
+	 * Set the monthWritten of this COBOL program.
 	 *
-	 * @return the monthWritten of this COBOL program
+	 * @param  monthDateWritten monthWritten of this COBOL program
 	 */
 	public void setMonthDateWritten(String monthDateWritten) {
 		this.monthDateWritten = monthDateWritten;
@@ -207,7 +205,7 @@ public class Cobol implements PubliclyCloneable {
 	/**
 	 * Set the yearDateWritten of this COBOL program.
 	 *
-	 * @param the yearDateWritten of this COBOL program
+	 * @param yearDateWritten yearDateWritten of this COBOL program
 	 */
 	public void setYearDateWritten(int yearDateWritten) {
 		this.yearDateWritten = yearDateWritten;
@@ -217,7 +215,7 @@ public class Cobol implements PubliclyCloneable {
 	/**
 	 * Set the section name 
 	 *
-	 * @param  String sectionName
+	 * @param  sectionName sectionName
 	 */
 	public void setSectionName(String sectionName) {
 		this.sectionName = sectionName;
@@ -226,7 +224,7 @@ public class Cobol implements PubliclyCloneable {
 	/**
 	 * Set the division name 
 	 *
-	 * @param  String divisionName
+	 * @param  divisionName divisionName
 	 */
 	public void setDivisionName(String divisionName) {
 		this.divisionName = divisionName;

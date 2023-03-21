@@ -26,9 +26,9 @@ public abstract class ParserVisitor {
 /**
  * Visit an alternation.
  *
- * @param   Alternation   the parser to visit
+ * @param   a   the parser to visit
  *
- * @param   ArrayList   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  *
  */
 public abstract void visitAlternation(
@@ -36,18 +36,18 @@ public abstract void visitAlternation(
 /**
  * Visit an empty parser.
  *
- * @param   Empty   the parser to visit
+ * @param   e   the parser to visit
  *
- * @param   ArrayList   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  *
  */
 public abstract void visitEmpty(Empty e, ArrayList<Assembly> visited);
 /**
  * Visit a repetition.
  *
- * @param   Repetition   the parser to visit
+ * @param   r   the parser to visit
  *
- * @param   ArrayList   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  *
  */
 public abstract void visitRepetition(
@@ -55,18 +55,18 @@ public abstract void visitRepetition(
 /**
  * Visit a sequence.
  *
- * @param   Sequence   the parser to visit
+ * @param   s   the parser to visit
  *
- * @param   ArrayList   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  *
  */
 public abstract void visitSequence(Sequence s, ArrayList<Assembly> visited);
 /**
  * Visit a terminal.
  *
- * @param   Terminal   the parser to visit
+ * @param   t   the parser to visit
  *
- * @param   ArrayList   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  *
  */
 public abstract void visitTerminal(Terminal t, ArrayList<Assembly> visited);

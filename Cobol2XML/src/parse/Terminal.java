@@ -38,7 +38,7 @@ public Terminal() {
 /**
  * Constructs a terminal with the given name.
  *
- * @param    String    A name to be known by.
+ * @param    name    A name to be known by.
  */
 public Terminal(String name) {
 	super(name);
@@ -47,9 +47,9 @@ public Terminal(String name) {
  * Accept a "visitor" and a collection of previously visited
  * parsers.
  *
- * @param   ParserVisitor   the visitor to accept
+ * @param   pv   the visitor to accept
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  */
 public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitTerminal(this, visited);
@@ -71,7 +71,7 @@ public Terminal discard() {
  * @return   a Vector of assemblies that result from 
  *           matching against a beginning set of assemblies
  *
- * @param   Vector   a vector of assemblies to match against
+ * @param   in   a vector of assemblies to match against
  *
  */
 public ArrayList<Assembly> match(ArrayList<Assembly> in) {
@@ -97,7 +97,7 @@ public ArrayList<Assembly> match(ArrayList<Assembly> in) {
  * the assembly. If the match fails, this method returns
  * null.
  *
- * @param   Assembly  the assembly to match against
+ * @param   in  the assembly to match against
  *
  * @return a copy of the incoming assembly, advanced by this 
  *         terminal
@@ -122,7 +122,7 @@ protected Assembly matchOneAssembly(Assembly in) {
  * qualifies as the type of terminal this terminal looks for.
  * This method performs that check.
  *
- * @param   Object   an element from a assembly
+ * @param   o   an element from a assembly
  *
  * @return   true, if the object is the kind of terminal this 
  *           parser seeks
@@ -145,7 +145,7 @@ public ArrayList<String> randomExpansion(int maxDepth, int depth) {
  * stack, after a successful match. This routine will turn 
  * off (or turn back on) that behavior.
  * 
- * @param   boolean   true, if this terminal should push 
+ * @param   discard   true, if this terminal should push
  *                    itself on a assembly's stack
  *
  * @return   this

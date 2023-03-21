@@ -65,7 +65,7 @@ public class Token {
 /**
  * Constructs a token from the given char.
  *
- * @param   char   the char
+ * @param   c   the char
  *
  * @return   a token constructed from the given char
  */
@@ -75,7 +75,7 @@ public Token(char c) {
 /**
  * Constructs a token from the given number.
  *
- * @param   double   the number
+ * @param   nval   the number
  *
  * @return   a token constructed from the given number
  */
@@ -85,7 +85,7 @@ public Token(double nval) {
 /**
  * Constructs a token from the given string.
  *
- * @param   String   the string
+ * @param   sval   the string
  *
  * @return   a token constructed from the given string
  */
@@ -96,13 +96,13 @@ public Token (String sval) {
  * Constructs a token of the indicated type and associated 
  * string or numeric values.
  *
- * @param   TokenType   the type of the token, typically one 
+ * @param   ttype   the type of the token, typically one
  *                      of the constants this class defines
  *
- * @param   string  the string value of the token, typically 
+ * @param   sval  the string value of the token, typically
  *                  null except for WORD and QUOTED tokens
  *
- * @param   double   the numeric value of the token, typically
+ * @param   nval   the numeric value of the token, typically
  *                   0 except for NUMBER tokens
  *
  * @return   a token
@@ -115,7 +115,7 @@ public Token (TokenType ttype, String sval, double nval) {
 /**
  * Returns true if the supplied object is an equivalent token.
  *
- * @param   object   the object to compare
+ * @param   o   the object to compare
  *
  * @return   true, if the supplied object is of the same type 
  *           and value
@@ -147,7 +147,7 @@ public int hashCode() {
  * Returns true if the supplied object is an equivalent token,
  * given mellowness about case in strings and characters.
  *
- * @param   object   the object to compare
+ * @param   o   the object to compare
  *
  * @return   true, if the supplied object is of the same type 
  *           and value. This method disregards case when 
@@ -244,7 +244,7 @@ public TokenType ttype() {
  */
 public Object value() {
 	if (ttype == TT_NUMBER) {
-		return new Double(nval);
+		return nval;
 	}
 	if (ttype == TT_EOF) {
 		return EOF;

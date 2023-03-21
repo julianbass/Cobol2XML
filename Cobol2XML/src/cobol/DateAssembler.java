@@ -28,7 +28,7 @@ public class DateAssembler extends Assembler {
  * Pop a string, and set the target SectionName to this
  * string.
  *
- * @param   Assembly   the assembly to work on
+ * @param   a   the assembly to work on
  */
 public void workOn(Assembly a) {
 	Cobol c = new Cobol();

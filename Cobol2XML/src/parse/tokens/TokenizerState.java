@@ -29,12 +29,12 @@ public abstract class TokenizerState {
  * @return  a token that represents a logical piece of the 
  *          reader
  *
- * @param   PushbackReader   a reader to read from
+ * @param   r   a reader to read from
  *
  * @param   c   the character that a tokenizer used to 
  *              determine to use this state
  *
- * @param   Tokenizer   the tokenizer conducting the overall
+ * @param   t   the tokenizer conducting the overall
  *                      tokenization of the reader
  *
  * @exception   IOException   if there is any problem reading

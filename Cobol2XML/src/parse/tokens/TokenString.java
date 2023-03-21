@@ -44,7 +44,7 @@ public TokenString(Token[] tokens) {
 /**
  * Constructs a tokenString from the supplied string. 
  *
- * @param   string   the string to tokenize
+ * @param   s   the string to tokenize
  *
  * @return    a tokenString constructed from tokens read from 
  *            the supplied string
@@ -56,7 +56,7 @@ public TokenString(String s) {
  * Constructs a tokenString from the supplied reader and 
  * tokenizer. 
  * 
- * @param   Tokenizer   the tokenizer that will produces the 
+ * @param   t   the tokenizer that will produces the
  *                      tokens
  *
  * @return    a tokenString constructed from the tokenizer's 
@@ -90,7 +90,7 @@ public int length() {
 /**
  * Returns the token at the specified index.
  *
- * @param    index   the index of the desired token
+ * @param    i   the index of the desired token
  * 
  * @return   token   the token at the specified index
  */

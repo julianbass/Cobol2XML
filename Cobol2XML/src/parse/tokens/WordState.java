@@ -82,7 +82,7 @@ public Token nextToken(PushbackReader r, int c, Tokenizer t)
  *
  * @param   to   char
  *
- * @param   boolean   true, if this state should allow
+ * @param   b   true, if this state should allow
  *                    characters in the given range as part
  *                    of a word
  */

@@ -74,9 +74,9 @@ public Alternation(
  * Accept a "visitor" and a collection of previously visited
  * parsers.
  *
- * @param   ParserVisitor   the visitor to accept
+ * @param   pv   the visitor to accept
  *
- * @param   Vector   a collection of previously visited parsers
+ * @param   visited   a collection of previously visited parsers
  */
 public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
 	pv.visitAlternation(this, visited);
@@ -89,7 +89,7 @@ public void accept(ParserVisitor pv, ArrayList<Assembly> visited) {
  * @return   a Vector of assemblies that result from 
  *           matching against a beginning set of assemblies
  *
- * @param   Vector   a vector of assemblies to match against
+ * @param   in   a vector of assemblies to match against
  *
  */
 public ArrayList<Assembly> match(ArrayList<Assembly> in) {

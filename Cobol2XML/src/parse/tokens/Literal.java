@@ -33,7 +33,7 @@ public class Literal extends Terminal {
 /**
  * Constructs a literal that will match the specified string.
  *
- * @param   string   the string to match as a token
+ * @param   s   the string to match as a token
  *
  * @return   a literal that will match the specified string
  */
@@ -44,7 +44,7 @@ public Literal(String s) {
  * Returns true if the literal this object equals an
  * assembly's next element.
  *
- * @param   object   an element from an assembly
+ * @param   o   an element from an assembly
  *
  * @return   true, if the specified literal equals the next 
  *           token from an assembly
@@ -55,7 +55,7 @@ protected boolean qualifies(Object o) {
 /**
  * Returns a textual description of this parser.
  *
- * @param   vector   a list of parsers already printed in 
+ * @param   visited   a list of parsers already printed in
  *                   this description
  * 
  * @return   string   a textual description of this parser

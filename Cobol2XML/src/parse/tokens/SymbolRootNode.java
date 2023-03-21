@@ -34,7 +34,7 @@ public SymbolRootNode() {
 /**
  * Add the given string as a symbol.
  *
- * @param   String   the character sequence to add
+ * @param   s   the character sequence to add
  */
 public void add(String s) {
 	char c = s.charAt(0);
@@ -75,9 +75,9 @@ protected void init() {
 /**
  * Return a symbol string from a reader.
  *
- * @param   PushbackReader   a reader to read from
+ * @param   r   a reader to read from
  *
- * @param   int   the first character of this symbol, already
+ * @param   first   the first character of this symbol, already
  *                read from the reader
  *
  * @return a symbol string from a reader

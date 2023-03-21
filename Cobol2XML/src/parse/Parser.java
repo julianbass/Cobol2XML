@@ -43,7 +43,7 @@ public abstract class Parser {
 /**
  * Constructs a parser with the given name.
  *
- * @param   String   A name to be known by. For parsers
+ * @param   name   A name to be known by. For parsers
  *                   that are deep composites, a simple name
  *                   identifying its purpose is useful.
  */
@@ -55,7 +55,7 @@ public abstract class Parser {
  * a parser structure. The book, "Design Patterns", explains
  * the visitor pattern.
  *
- * @param   ParserVisitor   the visitor to accept
+ * @param   pv   the visitor to accept
  */
 public void accept(ParserVisitor pv) {
 	accept(pv, new ArrayList<Assembly>());
@@ -64,9 +64,9 @@ public void accept(ParserVisitor pv) {
  * Accepts a "visitor" along with a collection of previously
  * visited parsers.
  *
- * @param   ParserVisitor   the visitor to accept
+ * @param   pv   the visitor to accept
  *
- * @param   Vector   a collection of previously visited 
+ * @param   visited   a collection of previously visited
  *                   parsers.
  */
 public abstract void accept(ParserVisitor pv, ArrayList<Assembly> visited);
@@ -91,7 +91,7 @@ public static void add(ArrayList<Assembly> al1, ArrayList<Assembly> al2) {
  *
  * @return   the most-matched assembly in a collection.
  *
- * @param   ArrayList   the collection to look through
+ * @param   v   the collection to look through
  *
  */
 public Assembly best(ArrayList<Assembly> v) {
@@ -122,7 +122,7 @@ public Assembly best(ArrayList<Assembly> v) {
  * @return   an assembly with the greatest possible number of 
  *           elements consumed by this parser
  *
- * @param   Assembly   an assembly to match against
+ * @param   a   an assembly to match against
  *
  */
 public Assembly bestMatch(Assembly a) {
@@ -138,7 +138,7 @@ public Assembly bestMatch(Assembly a) {
  * @return   either null, or a completely matched version of the
  *           supplied assembly
  *
- * @param   Assembly   an assembly to match against
+ * @param   a   an assembly to match against
  *
  */
 public Assembly completeMatch(Assembly a) {
@@ -152,7 +152,7 @@ public Assembly completeMatch(Assembly a) {
  * Create a copy of a vector, cloning each element of
  * the vector.
  *
- * @param   in   the vector to copy
+ * @param   v   the vector to copy
  *
  * @return   a copy of the input vector, cloning each 
  *           element of the vector
@@ -195,7 +195,7 @@ public String getName() {
  * @return   a Vector of assemblies that result from 
  *           matching against a beginning set of assemblies
  *
- * @param   Vector   a vector of assemblies to match against
+ * @param   in   a vector of assemblies to match against
  *
  */
 public abstract ArrayList<Assembly> match(ArrayList<Assembly> in);
@@ -207,7 +207,7 @@ public abstract ArrayList<Assembly> match(ArrayList<Assembly> in);
  * @return   a Vector of assemblies that result from matching
  *           against a beginning set of assemblies
  *
- * @param   Vector   a vector of assemblies to match against
+ * @param   in   a vector of assemblies to match against
  *
  */
 public ArrayList<Assembly> matchAndAssemble(ArrayList<Assembly> in) {
@@ -255,12 +255,12 @@ public String randomInput(int maxDepth, String separator) {
  * this parser successfully matches against the 
  * assembly.
  *
- * @param   Assembler   the assembler to apply
+ * @param   a   the assembler to apply
  *
  * @return   Parser   this
  */
-public Parser setAssembler(Assembler assembler) {
-	this.assembler = assembler;
+public Parser setAssembler(Assembler a) {
+	this.assembler = a;
 	return this;
 }
 /**
@@ -282,7 +282,7 @@ public String toString() {
  * twice, and uses <code>unvisitedString</code> which 
  * subclasses must implement.
  * 
- * @param   Vector    a list of objects already printed 
+ * @param   visited    a list of objects already printed
  * 
  * @return   a textual version of this parser,
  *           avoiding recursion

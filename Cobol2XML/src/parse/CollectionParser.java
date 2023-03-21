@@ -35,7 +35,7 @@ protected CollectionParser() {
 /**
  * Supports subclass constructors with a name argument
  *
- * @param   string   the name of this parser
+ * @param   name   the name of this parser
  */
 protected CollectionParser(String name) {
 	super(name);
@@ -82,7 +82,7 @@ protected CollectionParser(
 /**
  * Adds a parser to the collection.
  *
- * @param   Parser   the parser to add
+ * @param   e   the parser to add
  *
  * @return   this
  */
